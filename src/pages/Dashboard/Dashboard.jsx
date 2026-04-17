@@ -58,7 +58,7 @@ const Dashboard = () => {
               <h3 className='text-xl font-bold text-gray-900 mb-1'>
                 2026 Reading Goal
               </h3>
-              <p className='text-gray-500 text-sm'>{250} of {30} books read</p>
+              <p className='text-gray-500 text-sm'>{20} of {30} books read</p>
             </div>
             <div className='p-3 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full'>
               <AutoAwesome sx={{ fontSize: 32, color: "#7c3aed" }} />

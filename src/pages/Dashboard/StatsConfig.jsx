@@ -12,7 +12,7 @@ export const StatsConfig = ({ myLoans, reservations, stats }) => [
         value: myLoans.length,
         icon: <LibraryBooks sx={{fontSize: 32, color: "#0a047a"}} />,
         // bgColor: "bg-blue-100",
-         bgColor: "bg-gradient-to-br from-indigo-500 to-indigo-400",
+         bgColor: "bg-gradient-to-br from-indigo-500 to-purple-400",
         textColor: "text-blue-900"
     },
     {
