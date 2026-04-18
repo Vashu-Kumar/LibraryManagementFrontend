@@ -5,6 +5,7 @@ import UserLayout from './pages/UserLayout/UserLayout'
 import Navbar from './pages/UserLayout/Navbar'
 import UserSidebar from './pages/UserLayout/UserSidebar';
 import BookPage from './pages/Book/BookPage'
+import MyLoans from './pages/MyLoans/MyLoans'
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         <Route element={<UserLayout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/books" element={<BookPage />} />
-          <Route path="/my-loans" element={<Dashboard />} />
+          <Route path="/my-loans" element={<MyLoans />} />
           <Route path="/my-reservations" element={<Dashboard />} />
           <Route path="/my-fines" element={<Dashboard />} />
           <Route path="/subscriptions" element={<Dashboard />} />

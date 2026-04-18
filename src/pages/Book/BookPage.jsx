@@ -282,12 +282,10 @@ const BookPage = () => {
                     </aside>
 
                     {/* Main content area */}
-                    {/* <main className="flex flex-1 md:flex-row space-y-6"> */}
-                    <main className="flex space-y-6">
-                        {/* <div className='flex flex-col md:flex-row gap-4'> */}
+                    <main className="flex flex-col space-y-6 flex-1 min-w-0">
                         <div className='flex flex-col md:flex-row gap-4 w-full'>
                             {/* Search input */}
-                            <div className="flex-1" >
+                            <div className="flex-1">
                                 <TextField fullWidth
                                     placeholder='Search by title, author, or category...'
                                     value={searchTerm}
@@ -295,63 +293,41 @@ const BookPage = () => {
                                     InputProps={{
                                         startAdornment: (
                                             <InputAdornment position='start'>
-                                                <SearchIcon className="text-black-900" />
+                                                <SearchIcon />
                                             </InputAdornment>
                                         )
-                                    }}
-                                    sx={{
-                                        '&.MuiOutlinedInput-root': {
-                                            '&:hover fieldset': {
-                                                borderColor: '#010107',
-                                            },
-                                            '&.Mui-focused fieldset': {
-                                                borderColor: '#0ab334',
-                                            },
-                                        },
                                     }}
                                 />
                             </div>
 
                             {/* Sort Dropdown */}
-                            {/* <div className='md:w-64'> */}
                             <div className='md:w-64 w-full'>
-                                <FormControl>
+                                <FormControl fullWidth>
                                     <InputLabel>Sort By</InputLabel>
-                                    <Select value={getCurrentSortValue()}
-                                        onChange={(e) => handleSortChange()}
+                                    <Select
+                                        value={getCurrentSortValue()}
+                                        onChange={(e) => handleSortChange(e.target.value)}  // ✅ fixed
                                         label="Sort By"
                                         startAdornment={
-                                            <InputAdornment>
-                                                <SortIcon className="text-black-900" />
+                                            <InputAdornment position="start">  {/* ✅ fixed */}
+                                                <SortIcon />
                                             </InputAdornment>
                                         }
-                                        sx={{
-                                            '&.MuiOutlinedInput-notchedOutline': {
-                                                borderColor: '#E5E7EB',
-                                            },
-                                            '&:hover .MuiOutlinedInput-notchedOutline': {
-                                                borderColor: '#4F46E5',
-                                            },
-                                            '&.Mui-focused ..MuiOutlinedInput-notchedOutline': {
-                                                borderColor: '#4F46E5',
-                                            },
-                                        }}
                                     >
-                                        <MenuItem value="title-asc">Title(A-Z)</MenuItem>
-                                        <MenuItem value="title-desc">Title(Z-A)</MenuItem>
-                                        <MenuItem value="author-asc">Author(A-Z)</MenuItem>
-                                        <MenuItem value="author-desc">Author(Z-A)</MenuItem>
-                                        <MenuItem value="createdAt-asc">Newest First(A-Z)</MenuItem>
-                                        <MenuItem value="createdAt-desc">Oldest First(Z-A)</MenuItem>
+                                        <MenuItem value="title-asc">Title (A-Z)</MenuItem>
+                                        <MenuItem value="title-desc">Title (Z-A)</MenuItem>
+                                        <MenuItem value="author-asc">Author (A-Z)</MenuItem>
+                                        <MenuItem value="author-desc">Author (Z-A)</MenuItem>
+                                        <MenuItem value="createdAt-asc">Newest First</MenuItem>
+                                        <MenuItem value="createdAt-desc">Oldest First</MenuItem>
                                     </Select>
                                 </FormControl>
                             </div>
+                        </div>
 
-                            {/* Book list placeholder */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                                {books.map((book) => (<BookCard key={book.id} book={book} />))}
-                            </div>
+                        {/* Book grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {books.map((book) => (<BookCard key={book.id} book={book} />))}
                         </div>
                     </main>
                 </div>
