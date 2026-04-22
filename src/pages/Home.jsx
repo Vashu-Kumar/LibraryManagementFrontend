@@ -1,0 +1,16 @@
+import React from 'react'
+import Hero from '../components/Hero.jsx'
+import Categories from '../components/Categories.jsx'
+import NewArrivals from '../components/NewArrivals.jsx'
+
+
+const Home = () => {
+  return (
+    <div>
+      <Hero />
+      <NewArrivals />
+    </div>
+  )
+}
+
+export default Home
