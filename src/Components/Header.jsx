@@ -1,183 +1,106 @@
-import React, { useLayoutEffect, useRef } from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Avatar from "@mui/material/Avatar";
-import Tooltip from "@mui/material/Tooltip";
-import { Link, useNavigate } from "react-router-dom";
-import { gsap } from "gsap";
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+
+import { FaBars, FaSearch } from "react-icons/fa";
+import { FaBarsStaggered } from "react-icons/fa6";
+import { RiUserLine } from "react-icons/ri";
+
+import Navbar from './Navbar'
+import userImg from '../assets/user.png'
 
 const Header = () => {
-  const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
 
-  const [navMenuAnchor, setNavMenuAnchor] = React.useState(null);
-  const [userMenuAnchor, setUserMenuAnchor] = React.useState(null);
+  const [menuOpened, setMenuOpened] = useState(false)
+  const [showSearch, setShowSearch] = useState(false)
+  const [user, setUser] = useState(true)
 
-  const navItems = useRef([]);
-  const userMenuItems = useRef([]);
+  const navigate = useNavigate()
 
-  const handleOpenNavMenu = (event) => setNavMenuAnchor(event.currentTarget);
-  const handleCloseNavMenu = () => setNavMenuAnchor(null);
-  const handleOpenUserMenu = (event) => setUserMenuAnchor(event.currentTarget);
-  const handleCloseUserMenu = () => setUserMenuAnchor(null);
+  const toggleMenu = () => setMenuOpened(prev => !prev)
 
-  // 🌀 Animate nav links
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(navItems.current, {
-        opacity: 0,
-        y: 20,
-        stagger: 0.15,
-        duration: 0.4,
-        ease: "power2.out",
-      });
-    });
-    return () => ctx.revert();
-  }, []);
-
-  // 🌀 Animate user dropdown
-  useLayoutEffect(() => {
-    if (!userMenuAnchor) return;
-    const id = setTimeout(() => {
-      const ctx = gsap.context(() => {
-        gsap.from(userMenuItems.current, {
-          opacity: 0,
-          x: 30,
-          stagger: 0.1,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      });
-      return () => ctx.revert();
-    }, 50);
-    return () => clearTimeout(id);
-  }, [userMenuAnchor]);
-
-  // 🌍 Pages
-  const pages = [
-    { label: "Home", path: "/" },
-    { label: "Blog", path: "/CentralLibrary/blog" },
-    { label: "Contact", path: "/CentralLibrary/contact" },
-    { label: "About", path: "/CentralLibrary/about" },
-  ];
-
-  const settings = ["Profile", "Account", "Logout"];
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    alert("Logged out successfully!");
-    navigate("/");
-  };
+  const logoutUser = () => {
+    setUser(false)
+    navigate("/login")
+  }
 
   return (
-    <AppBar
-      position="fixed"
-      sx={{
-        backgroundColor: "#1B1212",
-        color: "#fefefe",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
-      }}
-    >
-      <Toolbar className="flex justify-between items-center">
+    <header className='absolute top-0 left-0 right-0 max-padd-container flexBetween gap-4 py-2'>
 
-        {/* 🏷️ Logo */}
-        <Link to="/" className="flex items-center gap-3 no-underline text-white">
-          <img
-            src="/library-logo.png"
-            alt="Central Library Logo"
-            className="h-10 w-10 rounded-full"
-          />
-          <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-            Central Library
-          </Typography>
-        </Link>
-
-        {/* 🌐 MOBILE MENU */}
-        <Box sx={{ display: { xs: "flex", md: "none" } }}>
-          <IconButton color="inherit" onClick={handleOpenNavMenu}>
-            <MenuIcon />
-          </IconButton>
-
-          <Menu
-            anchorEl={navMenuAnchor}
-            open={Boolean(navMenuAnchor)}
-            onClose={handleCloseNavMenu}
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            transformOrigin={{ vertical: "top", horizontal: "right" }}
-          >
-            {pages.map((page) => (
-              <MenuItem
-                key={page.path}
-                onClick={() => {
-                  handleCloseNavMenu();
-                  navigate(page.path);
-                }}
-              >
-                {page.label}
-              </MenuItem>
-            ))}
-          </Menu>
-        </Box>
-
-        {/* 🖥️ DESKTOP NAV */}
-        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }} className="justify-center">
-          <div className="bg-white rounded-full shadow-md ring-1 ring-slate-900/5 px-6 py-2 flex gap-x-6 items-center">
-            {pages.map((page, index) => (
-              <Link
-                key={page.path}
-                to={page.path}
-                ref={(el) => (navItems.current[index] = el)}
-                className="text-gray-800 hover:text-yellow-500 font-medium text-[15px] transition-colors duration-200"
-              >
-                {page.label}
-              </Link>
-            ))}
+      {/* LOGO */}
+      <div className="flex flex-1">
+        <Link to={"/"} className='bold-22 xl:bold-28 flex items-end gap-1'>
+          <img src="library-logo.png" alt="" className='hidden sm:block h-12 w-12' />
+          <div className="relative top-1">
+            <span className='text-secondary'>CentralLibrary</span>
           </div>
-        </Box>
+        </Link>
+      </div>
 
-        {/* 👤 User Avatar */}
-        {user && (
-          <Box sx={{ ml: 2 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={user.name || "User"} src="/library-logo.png" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              anchorEl={userMenuAnchor}
-              open={Boolean(userMenuAnchor)}
-              onClose={handleCloseUserMenu}
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
-            >
-              {settings.map((setting, index) => (
-                <MenuItem
-                  key={setting}
-                  ref={(el) => (userMenuItems.current[index] = el)}
-                  onClick={() => {
-                    handleCloseUserMenu();
-                    if (setting === "Profile") navigate("/CentralLibrary/profile");
-                    else if (setting === "Logout") handleLogout();
-                    else if (setting === "Account")
-                      alert("Account settings coming soon!");
-                  }}
-                >
-                  {setting}
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        )}
-      </Toolbar>
-    </AppBar>
-  );
-};
+      {/* NAVBAR */}
+      <div className="flex-1">
+        <Navbar
+          setMenuOpened={setMenuOpened}
+          containerStyles={`${menuOpened
+            ? 'flex items-start flex-col gap-y-8 fixed top-16 right-6 p-5 bg-white rounded-xl shadow-md w-52 ring-1 ring-slate-100 z-9'
+            : 'hidden lg:flex gap-x-5 xl:gap-x-7 medium-15 ring-1 ring-slate-50 p-1 bg-primary rounded-full'}`}
+        />
+      </div>
 
-export default Header;
+      {/* SEARCH + MENU */}
+      <div className='flex sm:flex-1 items-center sm:justify-end gap-x-4 sm:gap-8'>
+
+        <div className='relative hidden xl:flex items-center'>
+          <div className={`bg-white ring-1 ring-slate-100 rounded-full overflow-hidden transition-all duration-300 ease-in-out ${showSearch ? "w-[260px] opacity-100 px-4 py-2" : "w-0 opacity-0 p-0"}`}>
+            <input
+              type="text"
+              placeholder='search book'
+              className="bg-transparent w-full text-sm outline-none pr-10 placeholder:text-gray-400"
+            />
+          </div>
+
+          <div
+            onClick={() => setShowSearch(prev => !prev)}
+            className="absolute right-0 bg-primary p-2 rounded-full cursor-pointer z-10"
+          >
+            <FaSearch className='text-xl' />
+          </div>
+
+          {menuOpened ? (
+            <FaBarsStaggered onClick={toggleMenu} className='lg:hidden cursor-pointer text-xl' />
+          ) : (
+            <FaBars onClick={toggleMenu} className='lg:hidden cursor-pointer text-xl' />
+          )}
+        </div>
+
+        {/* USER */}
+        <div className="group relative">
+          <div>
+            {user ? (
+              <div className='flex gap-2 items-center cursor-pointer rounded-full bg-white'>
+                <img src={userImg} alt="User Image" height={44} width={44} />
+              </div>
+            ) : (
+              <button className="btn-light flexCenter gap-x-2">
+                Login <RiUserLine className='text-xl' />
+              </button>
+            )}
+          </div>
+
+          {user && (
+            <ul className="bg-white p-2 ring-1 ring-slate-100 rounded absolute right-0 top-10 hidden group-hover:flex flex-col medium-14 shadow-md z-10">
+              <li
+                onClick={logoutUser}
+                className='p-2 rounded-md hover:bg-primary cursor-pointer'
+              >
+                Logout
+              </li>
+            </ul>
+          )}
+        </div>
+      </div>
+
+    </header>
+  )
+}
+
+export default Header

@@ -8,7 +8,7 @@ const Footer = () => {
         
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 font-bold text-lg text-gray-800">
-          <img src={logoImg} alt="Central Library Logo" className="h-8" />
+          <img src={"/library-logo.png"} alt="Central Library Logo" className="h-8" />
           <span>Central Library</span>
         </Link>
 
