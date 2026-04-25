@@ -1,14 +1,15 @@
 import React from 'react'
 import Hero from '../components/Hero.jsx'
-import Categories from '../components/Categories.jsx'
 import NewArrivals from '../components/NewArrivals.jsx'
-
+import Achievements from '../Components/Achievements.jsx'
 
 const Home = () => {
   return (
-    <div>
+    <div className='m-4'>
       <Hero />
-      {/* <NewArrivals /> */}
+      <NewArrivals />
+      <Achievements />
+
     </div>
   )
 }

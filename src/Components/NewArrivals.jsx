@@ -3,7 +3,7 @@ import Item from "./Item";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
-import Title from "./Title"; // assuming you have a Title component
+import Title from "./Title";
 import { dummyBooks } from "../assets/data";
 
 
@@ -16,11 +16,12 @@ const NewArrivals = () => {
   }, []);
 
   return (
-    <section className="max-padd-container py-16">
+    <section className="py-16 mt-4">
       <Title
-        title={"New"}
+        title1={"New"}
         title2={"Arrivals"}
-        titleStyles={"pb-6"}
+        titleStyles={"pb-10"}
+        paraStyles={"hidden"}
         para={
           "Check out our newest books arriving weekly with fresh ideas, exciting plots, and vibrant voices."
         }
@@ -33,22 +34,22 @@ const NewArrivals = () => {
           disableOnInteraction: false,
         }}
         breakpoints={{
-            355: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            600: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-            },
-            900: {
-                slidesPerView: 4,
-                spaceBetween: 30,
-            },
-            1200: {
-                slidesPerView: 5,
-                spaceBetween: 30,
-            }
+          355: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          600: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          900: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+          1200: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+          }
         }}
         modules={[Autoplay]}
         loop={true}

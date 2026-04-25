@@ -1,10 +1,3 @@
-import academic from "../assets/categories/academic.png";
-import children from "../assets/categories/children.png";
-import health from "../assets/categories/health.png";
-import horror from "../assets/categories/horror.png";
-import business from "../assets/categories/business.png";
-import history from "../assets/categories/history.png";
-import adventure from "../assets/categories/adventure.png";
 
 import book_1 from "./book_1.png";
 import book_2 from "./book_2.png";
@@ -58,37 +51,6 @@ import blog5 from "../assets/blogs/blog5.jpg";
 import blog6 from "../assets/blogs/blog6.jpg";
 import blog7 from "../assets/blogs/blog7.jpg";
 import blog8 from "../assets/blogs/blog8.jpg";
-
-export const categories = [
-  {
-    name: "Academic",
-    image: academic,
-  },
-  {
-    name: "Children",
-    image: children,
-  },
-  {
-    name: "Health",
-    image: health,
-  },
-  {
-    name: "Horror",
-    image: horror,
-  },
-  {
-    name: "Business",
-    image: business,
-  },
-  {
-    name: "History",
-    image: history,
-  },
-  {
-    name: "Adventure",
-    image: adventure,
-  },
-];
 
 
 export const dummyBooks = [

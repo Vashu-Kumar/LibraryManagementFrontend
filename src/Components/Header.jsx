@@ -8,7 +8,7 @@ import { RiUserLine } from "react-icons/ri";
 import Navbar from './Navbar'
 import userImg from '../assets/user.png'
 
-const Header = () => {
+const Header = ({ searchQuery, setSearchQuery }) => {
 
   const [menuOpened, setMenuOpened] = useState(false)
   const [showSearch, setShowSearch] = useState(false)
@@ -41,7 +41,7 @@ const Header = () => {
         <Navbar
           setMenuOpened={setMenuOpened}
           containerStyles={`${menuOpened
-            ? 'flex items-start flex-col gap-y-8 fixed top-16 right-6 p-5 bg-white rounded-xl shadow-md w-52 ring-1 ring-slate-100 z-9'
+            ? 'flex items-start flex-col gap-y-8 fixed top-16 right-6 p-5 bg-white rounded-xl shadow-md w-52 ring-1 ring-slate-100 z-50'
             : 'hidden lg:flex gap-x-5 xl:gap-x-7 medium-15 ring-1 ring-slate-50 p-1 bg-primary rounded-full'}`}
         />
       </div>
@@ -49,11 +49,16 @@ const Header = () => {
       {/* SEARCH + MENU */}
       <div className='flex sm:flex-1 items-center sm:justify-end gap-x-4 sm:gap-8'>
 
+        {/* SEARCH */}
         <div className='relative hidden xl:flex items-center'>
-          <div className={`bg-white ring-1 ring-slate-100 rounded-full overflow-hidden transition-all duration-300 ease-in-out ${showSearch ? "w-[260px] opacity-100 px-4 py-2" : "w-0 opacity-0 p-0"}`}>
+          <div className={`bg-white ring-1 ring-slate-100 rounded-full overflow-hidden transition-all duration-300 ease-in-out 
+            ${showSearch ? "w-[260px] opacity-100 px-4 py-2" : "w-0 opacity-0 p-0"}`}>
+            
             <input
               type="text"
-              placeholder='search book'
+              placeholder='Search books...'
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="bg-transparent w-full text-sm outline-none pr-10 placeholder:text-gray-400"
             />
           </div>
@@ -64,23 +69,27 @@ const Header = () => {
           >
             <FaSearch className='text-xl' />
           </div>
-
-          {menuOpened ? (
-            <FaBarsStaggered onClick={toggleMenu} className='lg:hidden cursor-pointer text-xl' />
-          ) : (
-            <FaBars onClick={toggleMenu} className='lg:hidden cursor-pointer text-xl' />
-          )}
         </div>
+
+        {/* MOBILE MENU ICON */}
+        {menuOpened ? (
+          <FaBarsStaggered onClick={toggleMenu} className='lg:hidden cursor-pointer text-xl' />
+        ) : (
+          <FaBars onClick={toggleMenu} className='lg:hidden cursor-pointer text-xl' />
+        )}
 
         {/* USER */}
         <div className="group relative">
           <div>
             {user ? (
               <div className='flex gap-2 items-center cursor-pointer rounded-full bg-white'>
-                <img src={userImg} alt="User Image" height={44} width={44} />
+                <img src={userImg} alt="User" className="h-10 w-10 rounded-full" />
               </div>
             ) : (
-              <button className="btn-light flexCenter gap-x-2">
+              <button
+                onClick={() => navigate("/login")}
+                className="btn-light flexCenter gap-x-2"
+              >
                 Login <RiUserLine className='text-xl' />
               </button>
             )}
@@ -97,6 +106,7 @@ const Header = () => {
             </ul>
           )}
         </div>
+
       </div>
 
     </header>
