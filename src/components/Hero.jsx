@@ -27,7 +27,7 @@ const Hero = () => {
       <div className="flex-[5]  bg-cover bg-center bg-no-repeat rounded-2xl" style={{ backgroundImage: `url(${bg})` }}>
         {/* LEFT SIDE */}
 
-        <div className="flex flex-col h-full justify-center pt-8">
+        <div className="flex flex-col ml-6 h-full justify-center pt-8">
           <h1 className="bold-24 text-secondary font-thin">Welcome to Central Library</h1>
           <h3 className="h1 max-w-[664px] !font-[600] leading-none">Discover Knowledge, One Book at a Time</h3>
           <p className="max-w-xl pt-5">Explore our collection of books, manage your borrowings,
