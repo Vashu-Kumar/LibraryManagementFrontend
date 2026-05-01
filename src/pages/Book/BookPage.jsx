@@ -306,10 +306,10 @@ const BookPage = () => {
                                     <InputLabel>Sort By</InputLabel>
                                     <Select
                                         value={getCurrentSortValue()}
-                                        onChange={(e) => handleSortChange(e.target.value)}  // ✅ fixed
+                                        onChange={(e) => handleSortChange(e.target.value)}
                                         label="Sort By"
                                         startAdornment={
-                                            <InputAdornment position="start">  {/* ✅ fixed */}
+                                            <InputAdornment position="start">  
                                                 <SortIcon />
                                             </InputAdornment>
                                         }

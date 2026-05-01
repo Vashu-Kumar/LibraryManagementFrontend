@@ -18,10 +18,13 @@ import { isActive } from './util';
 
 const drawerWidth = 260;
 
+
+// CHANGE WITH REAL USER FROM DATABASE
 const user = {
     fullName: "John Doe",
     profilePicture: "https://randomuser.me/api/portraits/men/75.jpg"
 }
+
 
 const Navbar = ({ handleDrawerToggle }) => {
     const location = useLocation();
@@ -33,7 +36,7 @@ const Navbar = ({ handleDrawerToggle }) => {
                 width: { md: `calc(100% - ${drawerWidth}px)` },
                 ml: { md: `${drawerWidth}px` },
                 bgcolor: "background.paper",
-                color: "text.primary",             // fix: was "text-primary"
+                color: "text.primary",            
                 boxShadow: "0 1px 3px rgba(0, 0, 0, 0.08)"
             }}
         >
@@ -49,7 +52,7 @@ const Navbar = ({ handleDrawerToggle }) => {
 
                 <Typography
                     variant="h6"
-                    noWrap                          // fix: was "nowrap"
+                    noWrap                         
                     component="div"
                     sx={{ flexGrow: 1, fontWeight: 600 }}
                 >

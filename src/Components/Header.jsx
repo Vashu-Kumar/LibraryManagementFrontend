@@ -31,7 +31,7 @@ const Header = ({ searchQuery, setSearchQuery }) => {
         <Link to={"/"} className='bold-22 xl:bold-28 flex items-end gap-1'>
           <img src="library-logo.png" alt="" className='hidden sm:block h-12 w-12' />
           <div className="relative top-1">
-            <span className='text-secondary'>CentralLibrary</span>
+            <span className='text-secondary'>Central Library</span>
           </div>
         </Link>
       </div>

@@ -12,7 +12,7 @@ const Shop = ({ searchQuery }) => {
 
   const itemsPerPage = 10;
 
-  // 🔍 FILTER LOGIC
+  //  FILTER LOGIC
   useEffect(() => {
     const filtered = books.filter((book) =>
       (book.name || "").toLowerCase().includes(searchQuery.toLowerCase())
@@ -22,7 +22,7 @@ const Shop = ({ searchQuery }) => {
     setCurrentPage(1); // reset page on search
   }, [searchQuery, books]);
 
-  // 📄 PAGINATION LOGIC
+  //  PAGINATION LOGIC
   const totalPages = Math.ceil(filteredBooks.length / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -31,7 +31,7 @@ const Shop = ({ searchQuery }) => {
     startIndex + itemsPerPage
   );
 
-  // ⬅️➡️ PAGE HANDLERS
+  //  PAGE HANDLERS
   const nextPage = () => {
     if (currentPage < totalPages) setCurrentPage(prev => prev + 1);
   };
@@ -48,7 +48,7 @@ const Shop = ({ searchQuery }) => {
         title1styles={"pb-10"}
       />
 
-      {/* 📚 BOOK GRID */}
+      {/* BOOK GRID */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 sm:gap-8">
         {paginatedBooks.length > 0 ? (
           paginatedBooks.map((book, index) => (
@@ -61,7 +61,7 @@ const Shop = ({ searchQuery }) => {
         )}
       </div>
 
-      {/* 🔢 PAGINATION CONTROLS */}
+      {/*  PAGINATION CONTROLS */}
       {totalPages > 1 && (
         <div className="flex justify-center items-center gap-4 mt-10">
           <button

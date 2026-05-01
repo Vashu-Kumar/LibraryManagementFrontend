@@ -76,7 +76,7 @@ const Dashboard = () => {
             }}
           />
           <p className='text-sm text-gray-700 mt-2'>
-            70%
+            30%
           </p>
         </div>
 

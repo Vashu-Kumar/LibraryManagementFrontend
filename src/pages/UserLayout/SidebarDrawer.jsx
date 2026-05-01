@@ -22,7 +22,7 @@ const activeButtonSx = {
 
 const getNavButtonSx = (active) => ({
     ...activeButtonSx,
-    background: active                                          // fix: was 'bgcolor' on secondary items
+    background: active                                          
         ? 'linear-gradient(90deg, rgba(99,102,241,0.15) 0%, rgba(99,102,241,0) 100%)'
         : 'transparent',
     border: active
@@ -32,15 +32,15 @@ const getNavButtonSx = (active) => ({
     '&:hover': {
         background: active
             ? alpha('#6366f1', 0.3)
-            : 'rgba(255,255,255,0.1)',                          // fix: was rgba() called as a function
-        transform: 'translateX(6px)',                           // fix: was translatex (lowercase)
+            : 'rgba(255,255,255,0.1)',                         
+        transform: 'translateX(6px)',                           
         border: '1px solid rgba(99,102,241,0.5)',
     },
-    '&::before': active ? {                                     // fix: was '&:: before' (extra space)
+    '&::before': active ? {                                   
         content: '""',
         position: 'absolute',
         left: 0,
-        top: '50%',                                             // fix: was 50 (px), should be '50%'
+        top: '50%',                                             
         transform: 'translateY(-50%)',
         width: 4,
         height: '60%',
@@ -52,7 +52,7 @@ const getNavButtonSx = (active) => ({
 
 const gradientTextSx = {
     background: 'linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%)',
-    WebkitBackgroundClip: 'text',                               // fix: removed duplicate line
+    WebkitBackgroundClip: 'text',                              
     WebkitTextFillColor: 'transparent',
 };
 
@@ -161,7 +161,7 @@ const UserSidebar = () => {
             {/* Logout + footer */}
             <Box sx={{ p: 2 }}>
                 <ListItemButton
-                    onClick={handleLogout}                       // fix: was () => handleLogout (never called)
+                    onClick={handleLogout}                        
                     sx={{
                         borderRadius: 2.5, py: 1.5, px: 2,
                         background: 'linear-gradient(135deg, rgba(239,68,68,0.15) 0%, rgba(220,38,38,0.15) 100%)',
@@ -180,9 +180,9 @@ const UserSidebar = () => {
                     <Typography variant="body2" sx={{ color: 'white' }}>Logout</Typography>
                 </ListItemButton>
 
-                {/* fix: was <p className="pt-4 text-xs text-white-300"> (Tailwind in MUI project) */}
+                
                 <Typography variant="caption" sx={{ display: 'block', pt: 2, opacity: 0.4, textAlign: 'center' }}>
-                    © 2026 Library. All rights reserved
+                    © 2026 Central Library. All rights reserved
                 </Typography>
             </Box>
         </Box>

@@ -12,12 +12,12 @@ export const secondaryItems = [
     {
         title: 'Profile',
         path: '/profile',
-        icon: <PersonIcon />           // fix: was '<PersonalIcon />' (string + wrong name)
+        icon: <PersonIcon />           
     },
     {
         title: 'Settings',
         path: '/settings',
-        icon: <SettingsIcon />         // fix: was '<SettingsIcon />' (string)
+        icon: <SettingsIcon />         
     }
 ];
 
@@ -25,7 +25,7 @@ export const navigationItems = [
     {
         title: 'Dashboard',
         path: '/',
-        icon: <DashboardIcon />,       // fix: was '<DashboardIcon />' (string)
+        icon: <DashboardIcon />,       
         description: 'Overview & Stats'
     },
     {

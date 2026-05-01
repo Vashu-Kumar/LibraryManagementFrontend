@@ -14,7 +14,7 @@ import Footer from './Components/Footer';
 
 function App() {
 
-  // 🔍 GLOBAL SEARCH STATE
+  //  GLOBAL SEARCH STATE
   const [searchQuery, setSearchQuery] = useState("");
 
   return (

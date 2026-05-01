@@ -36,7 +36,7 @@ const Contact = () => {
                                 className="text-blue-400 hover:underline"
                                 href="mailto:support@librarymanagement.com"
                             >
-                                support@librarymanagement.com
+                                support@CentralLibrary.com
                             </a>
                         </p>
                         <p>

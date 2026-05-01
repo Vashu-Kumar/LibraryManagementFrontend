@@ -14,25 +14,7 @@ const Footer = () => {
     }
   ];
 
-
-
   return (
-    // <footer className="bg-gradient-to-l from-primary via-white to-primary py-4 border-t border-gray-300">
-    //   <div className="flex flex-col md:flex-row items-center justify-between gap-4 max-w-6xl mx-auto px-4">
-
-    //     {/* Logo */}
-    //     <Link to="/" className="flex items-center gap-2 font-bold text-lg text-gray-800">
-    //       <img src={"/library-logo.png"} alt="Central Library Logo" className="h-8" />
-    //       <span>Central Library</span>
-    //     </Link>
-
-    //     {/* Copyright */}
-    //     <p className="text-sm font-medium text-gray-700 text-center">
-    //       &copy; {new Date().getFullYear()} Central Library Management System. All rights reserved.
-    //     </p>
-
-    //   </div>
-    // </footer>
 
     <footer className="m-4 mt-6 bg-gradient-to-l from-primary via-white to-primary">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-gray-50">
@@ -42,12 +24,12 @@ const Footer = () => {
             <Link to={"/"} className="bold-22 xl:bold-28 flex items-end gap-1">
               <img src="library-logo.png" alt="" className="h-9" />
               <div className="relative">
-                CentralLibrary
+                Central Library
               </div>
             </Link>
           </div>
           <p className="mt-6 font-bold text-lg">
-            CentralLibrary is your digital gateway to explore, manage, and borrow books with ease.
+            Central Library is your digital gateway to explore, manage, and borrow books with ease.
             Designed to simplify library operations, our platform helps students and readers
             discover knowledge anytime, anywhere.
           </p>
@@ -73,7 +55,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="py-4 text-center">
-        Copyright 2026 CentralLibrary All Right Reserved.
+        Copyright 2026 Central Library All Right Reserved.
       </p>
     </footer>
 
