@@ -3,7 +3,9 @@ import StatsCard from './StatsCard.jsx'
 import { StatsConfig } from './StatsConfig.jsx'
 import AutoAwesome from '@mui/icons-material/AutoAwesome'
 import LinearProgress from '@mui/material/LinearProgress'
-import { Box, Tabs, Tab } from '@mui/material'
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import CurrentLoan from './CurrentLoan.jsx'
 import Reservation from './Reservation.jsx'
 import ReadingHistory from './ReadingHistory.jsx'

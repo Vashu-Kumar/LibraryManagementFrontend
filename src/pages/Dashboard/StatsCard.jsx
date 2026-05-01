@@ -1,5 +1,6 @@
 import React from 'react'
-import {Card, CardContent} from '@mui/material'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 const StatsCard = ({bgColor, icon, value, title, subTitle, textColor}) => {
   return (

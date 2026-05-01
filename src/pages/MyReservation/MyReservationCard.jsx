@@ -6,7 +6,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 import { getStatusColor } from './getStatusColor.jsx';
 import BookIcon from '@mui/icons-material/Book';
-import { Divider } from '@mui/material';
+import Divider from '@mui/material/Divider';
 
 
 

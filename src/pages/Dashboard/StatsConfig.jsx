@@ -1,5 +1,5 @@
 import React from 'react'
-import { LibraryBooks } from '@mui/icons-material'
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import HistoryIcon from '@mui/icons-material/History';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';

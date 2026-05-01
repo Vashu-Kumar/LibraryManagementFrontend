@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import PersonIcon from '@mui/icons-material/Person';
 import NumbersIcon from '@mui/icons-material/Numbers';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';

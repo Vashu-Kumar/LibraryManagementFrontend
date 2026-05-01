@@ -1,5 +1,4 @@
 import React from 'react'
-import { alpha, Box, ListItemIcon, Tooltip } from '@mui/material'
 import Avatar from '@mui/material/Avatar';
 import MenuBook from '@mui/icons-material/MenuBook';
 import Typography from '@mui/material/Typography';
@@ -8,7 +7,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import { navigationItems, secondaryItems } from './NavigationItems.jsx';
 import Divider from '@mui/material/Divider';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Logout } from '@mui/icons-material';
+import { alpha } from '@mui/material/styles';  
+import Box from '@mui/material/Box';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Tooltip from '@mui/material/Tooltip';
+
+import LogoutIcon from '@mui/icons-material/Logout';
 import { isActive } from './util.js';
 import ListItem from '@mui/material/ListItem';
 

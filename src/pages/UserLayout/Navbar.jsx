@@ -1,14 +1,12 @@
 import React from 'react'
 import AppBar from '@mui/material/AppBar';
 import { navigationItems } from './NavigationItems.jsx';
-import {
-    Avatar,
-    Box,
-    IconButton,
-    Toolbar,
-    Tooltip,
-    Typography
-} from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Toolbar from '@mui/material/Toolbar';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import ContrastIcon from '@mui/icons-material/Contrast';
