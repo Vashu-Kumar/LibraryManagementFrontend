@@ -7,9 +7,9 @@ import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
 import Button from '@mui/material/Button';
 
 
-import { tabs } from './tabs'
-import { reservations } from './reservations';
-import MyReservationCard from './MyReservationCard'
+import { tabs } from './tabs.jsx'
+import { reservations } from './reservations.jsx';
+import MyReservationCard from './MyReservationCard.jsx'
 
 
 const MyReservation = () => {

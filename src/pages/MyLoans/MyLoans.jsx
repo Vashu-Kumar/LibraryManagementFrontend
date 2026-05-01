@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
-import { tabs } from './tabs'
-import LoanCard from './LoanCard'
-import { loans } from './loans'
+import { tabs } from './tabs.js'
+import LoanCard from './LoanCard.jsx'
+import { loans } from './loans.js'
  
 
 const MyLoans = () => {

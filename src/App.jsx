@@ -3,20 +3,20 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 
 // Components
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ProtectedRoute from './components/ProtectedRoute'; 
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx'; 
 
 // Pages
-import Home from './pages/Home';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
-import Shop from './pages/Shop';
-import BookPage from './pages/Book/BookPage';
-import Dashboard from './pages/Dashboard/Dashboard';
-import MyReservation from './pages/MyReservation/MyReservation';
-import MyLoans from './pages/MyLoans/MyLoans';
-import UserLayout from './pages/UserLayout/UserLayout';
+import Home from './pages/Home.jsx';
+import Blog from './pages/Blog.jsx';
+import Contact from './pages/Contact.jsx';
+import Shop from './pages/Shop.jsx';
+import BookPage from './pages/Book/BookPage.jsx';
+import Dashboard from './pages/Dashboard/Dashboard.jsx';
+import MyReservation from './pages/MyReservation/MyReservation.jsx';
+import MyLoans from './pages/MyLoans/MyLoans.jsx';
+import UserLayout from './pages/UserLayout/UserLayout.jsx';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");

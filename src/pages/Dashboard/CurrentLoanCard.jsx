@@ -1,6 +1,6 @@
 import React from 'react'
 import { AccessTime } from '@mui/icons-material'
-import GetStatusChip from './GetStatusChip'
+import GetStatusChip from './GetStatusChip.jsx'
 import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 

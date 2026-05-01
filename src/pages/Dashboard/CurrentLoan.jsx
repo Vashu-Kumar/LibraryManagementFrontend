@@ -1,5 +1,5 @@
 import React from 'react'
-import CurrentLoanCard from './CurrentLoanCard'
+import CurrentLoanCard from './CurrentLoanCard.jsx'
 
 const CurrentLoan = ({ loans }) => {
 

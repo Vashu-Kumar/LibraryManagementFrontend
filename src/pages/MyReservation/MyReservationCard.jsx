@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
-import { getStatusColor } from './getStatusColor';
+import { getStatusColor } from './getStatusColor.jsx';
 import BookIcon from '@mui/icons-material/Book';
 import { Divider } from '@mui/material';
 

@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Box } from '@mui/material'
 import Toolbar from '@mui/material/Toolbar';
 import { Outlet } from "react-router-dom";
-import UserSidebar from './UserSidebar';
-import Navbar from './Navbar';                          
+import UserSidebar from './UserSidebar.jsx';
+import Navbar from './Navbar.jsx';                          
 
 const drawerWidth = 240;                               
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from '@mui/material'
 import Drawer from '@mui/material/Drawer';
-import SidebarDrawer from './SidebarDrawer';
+import SidebarDrawer from './SidebarDrawer.jsx';
 
 const drawerWidth = 240;                              
 

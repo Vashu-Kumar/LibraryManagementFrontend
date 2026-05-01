@@ -1,5 +1,5 @@
 import React from 'react'
-import GenreFilter from './GenreFilter'
+import GenreFilter from './GenreFilter.jsx'
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,7 +8,7 @@ import Select from '@mui/material/Select';
 import { InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import SortIcon from '@mui/icons-material/Sort';
-import BookCard from './BookCard'
+import BookCard from './BookCard.jsx'
 
 const genres = [
     {

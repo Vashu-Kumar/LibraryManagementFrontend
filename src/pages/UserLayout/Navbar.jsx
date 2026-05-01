@@ -1,6 +1,6 @@
 import React from 'react'
 import AppBar from '@mui/material/AppBar';
-import { navigationItems } from './NavigationItems';
+import { navigationItems } from './NavigationItems.jsx';
 import {
     Avatar,
     Box,
@@ -14,7 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ContrastIcon from '@mui/icons-material/Contrast';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useLocation } from 'react-router-dom';
-import { isActive } from './util';
+import { isActive } from './util.js';
 
 const drawerWidth = 260;
 

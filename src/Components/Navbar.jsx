@@ -4,7 +4,7 @@ import { IoLibraryOutline } from "react-icons/io5";
 import { TbBrandBlogger } from "react-icons/tb";
 import { PiEnvelopeDuotone } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const Navbar = ({ containerStyles, setMenuOpened }) => {
 

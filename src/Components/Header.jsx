@@ -5,7 +5,7 @@ import { FaBars, FaSearch } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { RiUserLine } from "react-icons/ri";
 
-import Navbar from './Navbar'
+import Navbar from './Navbar.jsx'
 import userImg from '../assets/user.png'
 
 const Header = ({ searchQuery, setSearchQuery }) => {

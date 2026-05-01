@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Item from "./Item";
+import Item from "./Item.jsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
-import Title from "./Title";
+import Title from "./Title.jsx";
 import { dummyBooks } from "../assets/data";
 
 

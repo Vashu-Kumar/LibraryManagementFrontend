@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import bg from "../assets/bg.png";
 import bgHero from "../assets/bg-hero.png";
-import Item from "./Item";
+import Item from "./Item.jsx";
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from "react-icons/fa";
 

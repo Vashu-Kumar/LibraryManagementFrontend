@@ -1,13 +1,13 @@
 import React from 'react'
-import StatsCard from './StatsCard'
-import { StatsConfig } from './StatsConfig'
+import StatsCard from './StatsCard.jsx'
+import { StatsConfig } from './StatsConfig.jsx'
 import AutoAwesome from '@mui/icons-material/AutoAwesome'
 import LinearProgress from '@mui/material/LinearProgress'
 import { Box, Tabs, Tab } from '@mui/material'
-import CurrentLoan from './CurrentLoan'
-import Reservation from './Reservation'
-import ReadingHistory from './ReadingHistory'
-import Recommendation from './Recommendation'
+import CurrentLoan from './CurrentLoan.jsx'
+import Reservation from './Reservation.jsx'
+import ReadingHistory from './ReadingHistory.jsx'
+import Recommendation from './Recommendation.jsx'
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = React.useState(0)

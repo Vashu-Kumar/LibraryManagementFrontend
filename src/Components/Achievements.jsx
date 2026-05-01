@@ -2,7 +2,7 @@ import React from 'react'
 import { FaUsersLine } from "react-icons/fa6";
 import { RiSoundModuleLine } from "react-icons/ri";
 import { RiSecurePaymentLine } from "react-icons/ri";
-import Title from './Title';
+import Title from './Title.jsx';
 
 const Achievements = () => {
 

@@ -5,11 +5,11 @@ import MenuBook from '@mui/icons-material/MenuBook';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import { navigationItems, secondaryItems } from './NavigationItems';
+import { navigationItems, secondaryItems } from './NavigationItems.jsx';
 import Divider from '@mui/material/Divider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Logout } from '@mui/icons-material';
-import { isActive } from './util';
+import { isActive } from './util.js';
 import ListItem from '@mui/material/ListItem';
 
 const activeButtonSx = {
