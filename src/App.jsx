@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 
 // Components
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import ProtectedRoute from './Components/ProtectedRoute'; 
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ProtectedRoute from './components/ProtectedRoute'; 
 
 // Pages
 import Home from './pages/Home';

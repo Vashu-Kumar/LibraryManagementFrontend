@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Title from '../Components/Title'
-import Item from '../Components/Item'
+import Title from '../components/Title'
+import Item from '../components/Item'
 import { dummyBooks } from "../assets/data";
 
 const Shop = ({ searchQuery }) => {

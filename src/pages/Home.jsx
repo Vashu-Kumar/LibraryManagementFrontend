@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from '../components/Hero.jsx'
 import NewArrivals from '../components/NewArrivals.jsx'
-import Achievements from '../Components/Achievements.jsx'
+import Achievements from '../components/Achievements.jsx'
 
 const Home = () => {
   return (
