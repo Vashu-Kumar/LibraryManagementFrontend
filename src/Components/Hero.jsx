@@ -13,10 +13,8 @@ import { Autoplay } from "swiper/modules";
 // Import dummy data
 import { dummyBooks as books } from "../assets/data";
 
-
 const Hero = () => {
   const [popularBooks, setPopularBooks] = useState([]);
-
 
   useEffect(() => {
     // Filter featured/popular books

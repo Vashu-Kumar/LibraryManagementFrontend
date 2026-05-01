@@ -5,7 +5,7 @@ import { useState } from 'react';
 // Components
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import ProtectedRoute from './components/ProtectedRoute'; 
+import ProtectedRoute from './Components/ProtectedRoute'; 
 
 // Pages
 import Home from './pages/Home';
@@ -24,7 +24,6 @@ function App() {
   return (
    
       <main>
-
         {/* HEADER */}
         <Header 
           searchQuery={searchQuery} 
@@ -42,7 +41,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
 
-          {/* 🔐 Protected Routes */}
+          {/*  Protected Routes */}
           <Route 
             path="/book" 
             element={
