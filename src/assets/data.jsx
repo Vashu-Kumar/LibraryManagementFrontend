@@ -56,7 +56,7 @@ import blog8 from "../assets/blogs/blog8.jpg";
 export const dummyBooks = [
   // 🎓 Academic (6)
   {
-    _id: "1",
+    id: 1,
     name: "Foundations of Science",
     image: book_1,
     price: 15,
@@ -68,7 +68,7 @@ export const dummyBooks = [
     author: "Bill Nye",
   },
   {
-    _id: "2",
+    id: 2,
     name: "Everyday Math Explained",
     image: book_2,
     price: 20,
@@ -80,7 +80,7 @@ export const dummyBooks = [
     author: "Steven Strogatz",
   },
   {
-    _id: "3",
+    id: 3,
     name: "Basics of Chemistry",
     image: book_3,
     price: 10,
@@ -92,7 +92,7 @@ export const dummyBooks = [
     author: "Peter Atkins",
   },
   {
-    _id: "4",
+    id: 4,
     name: "Tech and Logic Essentials",
     image: book_4,
     price: 25,
@@ -104,7 +104,7 @@ export const dummyBooks = [
     author: "Charles Petzold",
   },
   {
-    _id: "5",
+    id: 5,
     name: "World Events and Ideas",
     image: book_5,
     price: 15,
@@ -116,7 +116,7 @@ export const dummyBooks = [
     author: "Yuval Noah Harari",
   },
   {
-    _id: "6",
+    id: 6,
     name: "Understanding Life Science",
     image: book_6,
     price: 18,
@@ -130,7 +130,7 @@ export const dummyBooks = [
 
   // 🧒 Children (6)
   {
-    _id: "7",
+    id: 7,
     name: "The Magic Treehouse",
     image: book_7,
     price: 12,
@@ -142,7 +142,7 @@ export const dummyBooks = [
     author: "Mary Pope Osborne",
   },
   {
-    _id: "8",
+    id: 8,
     name: "Animal Friends Forever",
     image: book_8,
     price: 14,
@@ -154,7 +154,7 @@ export const dummyBooks = [
     author: "Beatrix Potter",
   },
   {
-    _id: "9",
+    id: 9,
     name: "Fairyland Dreams",
     image: book_9,
     price: 18,
@@ -166,7 +166,7 @@ export const dummyBooks = [
     author: "Gail Carson Levine",
   },
   {
-    _id: "10",
+    id: 10,
     name: "Super Jack and the Dragon",
     image: book_10,
     price: 20,
@@ -178,7 +178,7 @@ export const dummyBooks = [
     author: "Cornelia Funke",
   },
   {
-    _id: "11",
+    id: 11,
     name: "Treasure Island Map",
     image: book_11,
     price: 15,
@@ -190,7 +190,7 @@ export const dummyBooks = [
     author: "Robert Louis Stevenson",
   },
   {
-    _id: "12",
+    id: 12,
     name: "Kids in Space",
     image: book_12,
     price: 17,
@@ -204,7 +204,7 @@ export const dummyBooks = [
 
   // 💪 Health (6)
   {
-    _id: "13",
+    id: 13,
     name: "Healthy Living Guide",
     image: book_13,
     price: 20,
@@ -216,7 +216,7 @@ export const dummyBooks = [
     author: "Dr. Andrew Weil",
   },
   {
-    _id: "14",
+    id: 14,
     name: "Yoga and You",
     image: book_14,
     price: 18,
@@ -228,7 +228,7 @@ export const dummyBooks = [
     author: "B.K.S. Iyengar",
   },
   {
-    _id: "15",
+    id: 15,
     name: "Nutrition Simplified",
     image: book_15,
     price: 15,
@@ -240,7 +240,7 @@ export const dummyBooks = [
     author: "Dr. Michael Greger",
   },
   {
-    _id: "16",
+    id: 16,
     name: "Rest and Recharge",
     image: book_16,
     price: 22,
@@ -252,7 +252,7 @@ export const dummyBooks = [
     author: "Matthew Walker",
   },
   {
-    _id: "17",
+    id: 17,
     name: "Quick Fitness Plan",
     image: book_17,
     price: 25,
@@ -264,7 +264,7 @@ export const dummyBooks = [
     author: "Joe Wicks",
   },
   {
-    _id: "18",
+    id: 18,
     name: "Nature Heals",
     image: book_18,
     price: 18,
@@ -278,7 +278,7 @@ export const dummyBooks = [
 
   // 👻 Horror (6)
   {
-    _id: "19",
+    id: 19,
     name: "Whispers in the Dark",
     image: book_19,
     price: 30,
@@ -290,7 +290,7 @@ export const dummyBooks = [
     author: "Stephen King",
   },
   {
-    _id: "20",
+    id: 20,
     name: "The Haunted Woods",
     image: book_20,
     price: 25,
@@ -302,7 +302,7 @@ export const dummyBooks = [
     author: "Algernon Blackwood",
   },
   {
-    _id: "21",
+    id: 21,
     name: "Voices from the Grave",
     image: book_21,
     price: 18,
@@ -314,7 +314,7 @@ export const dummyBooks = [
     author: "Edgar Allan Poe",
   },
   {
-    _id: "22",
+    id: 22,
     name: "Night of the Shadows",
     image: book_22,
     price: 22,
@@ -326,7 +326,7 @@ export const dummyBooks = [
     author: "Shirley Jackson",
   },
   {
-    _id: "23",
+    id: 23,
     name: "The Mirror's Curse",
     image: book_23,
     price: 28,
@@ -338,7 +338,7 @@ export const dummyBooks = [
     author: "Clive Barker",
   },
   {
-    _id: "24",
+    id: 24,
     name: "Basement of Bones",
     image: book_24,
     price: 30,
@@ -352,7 +352,7 @@ export const dummyBooks = [
 
   // 💼 Business (6)
   {
-    _id: "25",
+    id: 25,
     name: "Start Your Own Business",
     image: book_25,
     price: 22,
@@ -364,7 +364,7 @@ export const dummyBooks = [
     author: "Eric Ries",
   },
   {
-    _id: "26",
+    id: 26,
     name: "Brand Like a Pro",
     image: book_26,
     price: 24,
@@ -376,7 +376,7 @@ export const dummyBooks = [
     author: "Marty Neumeier",
   },
   {
-    _id: "27",
+    id: 27,
     name: "Lead with Purpose",
     image: book_27,
     price: 26,
@@ -388,7 +388,7 @@ export const dummyBooks = [
     author: "Simon Sinek",
   },
   {
-    _id: "28",
+    id: 28,
     name: "Finance for Everyone",
     image: book_28,
     price: 18,
@@ -400,7 +400,7 @@ export const dummyBooks = [
     author: "Robert Kiyosaki",
   },
   {
-    _id: "29",
+    id: 29,
     name: "Mastering Negotiation",
     image: book_29,
     price: 22,
@@ -412,7 +412,7 @@ export const dummyBooks = [
     author: "Chris Voss",
   },
   {
-    _id: "30",
+    id: 30,
     name: "Productivity Hacks",
     image: book_30,
     price: 20,
@@ -426,7 +426,7 @@ export const dummyBooks = [
 
   // 🏺 History (6)
   {
-    _id: "31",
+    id: 31,
     name: "Ancient Civilizations",
     image: book_31,
     price: 15,
@@ -438,7 +438,7 @@ export const dummyBooks = [
     author: "Tom Holland",
   },
   {
-    _id: "32",
+    id: 32,
     name: "World War Chronicles",
     image: book_32,
     price: 18,
@@ -450,7 +450,7 @@ export const dummyBooks = [
     author: "Antony Beevor",
   },
   {
-    _id: "33",
+    id: 33,
     name: "Leaders Who Changed the World",
     image: book_33,
     price: 12,
@@ -462,7 +462,7 @@ export const dummyBooks = [
     author: "Doris Kearns Goodwin",
   },
   {
-    _id: "34",
+    id: 34,
     name: "The Rise and Fall of Empires",
     image: book_34,
     price: 20,
@@ -474,7 +474,7 @@ export const dummyBooks = [
     author: "Edward Gibbon",
   },
   {
-    _id: "35",
+    id: 35,
     name: "History of Inventions",
     image: book_35,
     price: 22,
@@ -486,7 +486,7 @@ export const dummyBooks = [
     author: "Trevor I. Williams",
   },
   {
-    _id: "36",
+    id: 36,
     name: "Explorers and Voyages",
     image: book_36,
     price: 25,
@@ -500,7 +500,7 @@ export const dummyBooks = [
 
   // 🧭 Adventure (6)
   {
-    _id: "37",
+    id: 37,
     name: "Into the Unknown",
     image: book_37,
     price: 16,
@@ -512,7 +512,7 @@ export const dummyBooks = [
     author: "Jon Krakauer",
   },
   {
-    _id: "38",
+    id: 38,
     name: "Lost in the Jungle",
     image: book_38,
     price: 19,
@@ -524,7 +524,7 @@ export const dummyBooks = [
     author: "Yossi Ghinsberg",
   },
   {
-    _id: "39",
+    id: 39,
     name: "Mountains of Mystery",
     image: book_39,
     price: 20,
@@ -536,7 +536,7 @@ export const dummyBooks = [
     author: "Reinhold Messner",
   },
   {
-    _id: "40",
+    id: 40,
     name: "The Desert Odyssey",
     image: book_40,
     price: 23,
@@ -548,7 +548,7 @@ export const dummyBooks = [
     author: "Wilfred Thesiger",
   },
   {
-    _id: "41",
+    id: 41,
     name: "Caves of Wonder",
     image: book_41,
     price: 22,
@@ -560,7 +560,7 @@ export const dummyBooks = [
     author: "Richard Spelunker",
   },
   {
-    _id: "42",
+    id: 42,
     name: "Frozen Expedition",
     image: book_42,
     price: 21,

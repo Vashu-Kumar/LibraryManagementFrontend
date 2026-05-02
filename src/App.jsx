@@ -19,6 +19,7 @@ const MyReservation = lazy(() => import('./pages/MyReservation/MyReservation.jsx
 const MyLoans = lazy(() => import('./pages/MyLoans/MyLoans.jsx'));
 const UserLayout = lazy(() => import('./pages/UserLayout/UserLayout.jsx'));
 const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard.jsx'))
+import ProductDetails from './pages/ProductDetails.jsx'
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,71 +32,72 @@ function App() {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-        <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
 
-          <Routes>
-            <Route path="/" element={<Home />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-            <Route
-              path="/shop"
-              element={<Shop searchQuery={searchQuery} />}
-            />
+          <Route
+            path="/shop"
+            element={<Shop searchQuery={searchQuery} />}
+          />
+          <Route path="/book/:id" element={<ProductDetails />} />
 
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
 
-            {/*  Protected Routes */}
-            <Route
-              path="/book"
-              element={
-                <ProtectedRoute>
-                  <BookPage />
-                </ProtectedRoute>
-              }
-            />
+          {/*  Protected Routes */}
+          <Route
+            path="/book"
+            element={
+              <ProtectedRoute>
+                <BookPage />
+              </ProtectedRoute>
+            }
+          />
 
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
 
-            <Route
-              path="/my-reservations"
-              element={
-                <ProtectedRoute>
-                  <MyReservation />
-                </ProtectedRoute>
-              }
-            />
+          <Route
+            path="/my-reservations"
+            element={
+              <ProtectedRoute>
+                <MyReservation />
+              </ProtectedRoute>
+            }
+          />
 
-            <Route
-              path="/my-loans"
-              element={
-                <ProtectedRoute>
-                  <MyLoans />
-                </ProtectedRoute>
-              }
-            />
+          <Route
+            path="/my-loans"
+            element={
+              <ProtectedRoute>
+                <MyLoans />
+              </ProtectedRoute>
+            }
+          />
 
-            <Route
-              path="/user"
-              element={
-                <ProtectedRoute>
-                  <UserLayout />
-                </ProtectedRoute>
-              }
-            />
+          <Route
+            path="/user"
+            element={
+              <ProtectedRoute>
+                <UserLayout />
+              </ProtectedRoute>
+            }
+          />
 
-            <Route path="*" element={<Home />} />
-          </Routes>
-        </Suspense>
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </Suspense>
 
-        {/* FOOTER */}
-        <Footer />
+      {/* FOOTER */}
+      <Footer />
 
     </main>
 

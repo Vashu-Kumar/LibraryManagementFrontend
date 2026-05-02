@@ -45,28 +45,34 @@ bg-no-repeat bg-center bg-contain"
           imageRendering: "crisp-edges",
         }}
       >
-        <div className="max-w-sm">
-          <Swiper
-            modules={[Autoplay]}
-            autoplay={{
-              delay: 1500,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            speed={800}
-            slidesPerView={1}
-            spaceBetween={20}
-            className="h-[300px] w-[200px]"
-          >
-            {popularBooks.map((book) => (
-              <SwiperSlide key={book._id || book.id}>
-                <Item book={book} fromHero={true} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <div>
+          {
+            <Swiper
+              autoplay={{
+                delay: 1000,
+                disableOnInteraction: false,
+
+              }}
+              breakpoints={{
+                355: {
+                  slidesPerView: 1,
+                  spaceBetween: 10
+                },
+              }}
+              modules={[ Autoplay ]}
+              className="mih-h-[400px] max-w-64"
+              loop={true}
+              speed={800}
+            >
+              {popularBooks.map((book) => (
+                <SwiperSlide key={book.id}>
+                  <Item book={book} fromHero={true} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          }
         </div>
       </div>
-
     </section>
   );
 };

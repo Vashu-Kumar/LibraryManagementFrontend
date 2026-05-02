@@ -14,6 +14,9 @@ const BookCard = ({ book }) => {
             <div className='relative h-64 bg-gradient-to-br from-indigo-100 to-purple-100 overflow-hidden'>
                 <img
                     src={book.coverImageUrl || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-5Ei0F_j0MnzOfLg0x-GqTVcgss3x_yogXw&s"}
+
+src={book.coveImageUrl || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-5Ei0F_j0MnzOfLg0x-GqTVcgss3x_yogXw&s"}
+
                     alt={book.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
