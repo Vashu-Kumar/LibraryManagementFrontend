@@ -8,11 +8,14 @@ import { RiUserLine } from "react-icons/ri";
 import Navbar from './Navbar.jsx'
 import userImg from '../assets/user.png'
 
+import Login from '../pages/Login'
+
 const Header = ({ searchQuery, setSearchQuery }) => {
 
   const [menuOpened, setMenuOpened] = useState(false)
   const [showSearch, setShowSearch] = useState(false)
-  const [user, setUser] = useState(true)
+  const [showLogin, setShowLogin] = useState(false)
+  const [user, setUser] = useState(false)
 
   const navigate = useNavigate()
 
@@ -53,7 +56,7 @@ const Header = ({ searchQuery, setSearchQuery }) => {
         <div className='relative hidden xl:flex items-center'>
           <div className={`bg-white ring-1 ring-slate-100 rounded-full overflow-hidden transition-all duration-300 ease-in-out 
             ${showSearch ? "w-[260px] opacity-100 px-4 py-2" : "w-0 opacity-0 p-0"}`}>
-            
+
             <input
               type="text"
               placeholder='Search books...'
@@ -80,20 +83,27 @@ const Header = ({ searchQuery, setSearchQuery }) => {
 
         {/* USER */}
         <div className="group relative">
-          <div>
-            {user ? (
-              <div className='flex gap-2 items-center cursor-pointer rounded-full bg-white'>
-                <img src={userImg} alt="User" className="h-10 w-10 rounded-full" />
-              </div>
-            ) : (
-              <button
-                onClick={() => navigate("/login")}
-                className="btn-light flexCenter gap-x-2"
-              >
-                Login <RiUserLine className='text-xl' />
-              </button>
-            )}
-          </div>
+
+          {user ? (
+            <div className='flex gap-2 items-center cursor-pointer rounded-full bg-white'>
+              <img
+                src={userImg}
+                alt="User"
+                className="h-10 w-10 rounded-full"
+              />
+            </div>
+          ) : (
+            <div
+              onClick={() => setShowLogin(true)}
+              className='flex gap-2 items-center cursor-pointer rounded-full bg-white'
+            >
+              <img
+                src={userImg}
+                alt="User"
+                className="h-10 w-10 rounded-full"
+              />
+            </div>
+          )}
 
           {user && (
             <ul className="bg-white p-2 ring-1 ring-slate-100 rounded absolute right-0 top-10 hidden group-hover:flex flex-col medium-14 shadow-md z-10">
@@ -108,7 +118,12 @@ const Header = ({ searchQuery, setSearchQuery }) => {
         </div>
 
       </div>
-
+{showLogin && (
+  <Login
+    setShowLogin={setShowLogin}
+    setUser={setUser}
+  />
+)}
     </header>
   )
 }

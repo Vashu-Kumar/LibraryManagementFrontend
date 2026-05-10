@@ -11,14 +11,14 @@ import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 // Pages
 const Home = lazy(() => import('./pages/Home.jsx'));
-const Blog = lazy(() => import('./pages/Blog.jsx'));
+// const Blog = lazy(() => import('./pages/Blog.jsx'));
 const Contact = lazy(() => import('./pages/Contact.jsx'));
 const Shop = lazy(() => import('./pages/Shop.jsx'));
 const BookPage = lazy(() => import('./pages/Book/BookPage.jsx'));
 const MyReservation = lazy(() => import('./pages/MyReservation/MyReservation.jsx'));
 const MyLoans = lazy(() => import('./pages/MyLoans/MyLoans.jsx'));
 const UserLayout = lazy(() => import('./pages/UserLayout/UserLayout.jsx'));
-const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard.jsx'))
+const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard.jsx'));
 import ProductDetails from './pages/ProductDetails.jsx'
 
 function App() {
@@ -38,12 +38,12 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route
-            path="/shop"
+            path="/borrowBooks"
             element={<Shop searchQuery={searchQuery} />}
           />
           <Route path="/book/:id" element={<ProductDetails />} />
 
-          <Route path="/blog" element={<Blog />} />
+          {/* <Route path="/blog" element={<Blog />} /> */}
           <Route path="/contact" element={<Contact />} />
 
           {/*  Protected Routes */}
@@ -105,3 +105,7 @@ function App() {
 }
 
 export default App;
+
+
+
+

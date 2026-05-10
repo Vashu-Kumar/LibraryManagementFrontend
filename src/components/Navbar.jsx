@@ -31,18 +31,18 @@ const Navbar = ({ containerStyles, setMenuOpened }) => {
 
       {/* 📚 Shop */}
       <NavLink
-        to="/shop"
+        to="/borrowBooks"
         onClick={handleClick}
         className={({ isActive }) =>
           `${isActive ? "bg-white ring-1 ring-slate-50" : ""} flexCenter gap-x-2 px-3 py-1.5 rounded-full`
         }
       >
         <IoLibraryOutline className="text-xl" />
-        <span className="medium-16">Shop</span>
+        <span className="medium-16">Borrow Books</span>
       </NavLink>
 
       {/* 📝 Blog */}
-      <NavLink
+      {/* <NavLink
         to="/blog"
         onClick={handleClick}
         className={({ isActive }) =>
@@ -51,7 +51,7 @@ const Navbar = ({ containerStyles, setMenuOpened }) => {
       >
         <TbBrandBlogger className="text-xl" />
         <span className="medium-16">Blog</span>
-      </NavLink>
+      </NavLink> */}
 
       {/* 📧 Contact (external) */}
       <a
@@ -77,7 +77,7 @@ const Navbar = ({ containerStyles, setMenuOpened }) => {
       )}
 
       {/* 🔑 Auth Button */}
-      {isAuthenticated ? (
+      {/* {isAuthenticated ? (
         <button
           onClick={() => {
             logout();
@@ -95,7 +95,7 @@ const Navbar = ({ containerStyles, setMenuOpened }) => {
         >
           Login
         </NavLink>
-      )}
+      )} */}
 
     </nav>
   );

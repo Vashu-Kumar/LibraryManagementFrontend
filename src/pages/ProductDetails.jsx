@@ -24,7 +24,7 @@ const ProductDetails = () => {
       <div className='max-padd-conatainer py-16 pt-28'>
         <p className='ml-8'>
           <Link to={'/'} className='text-black'>Home</Link> /
-          <Link to={'/shop'} className='text-black'>Shop</Link> /
+          <Link to={'/borrowBooks'} className='text-black'>Shop</Link> /
           <span className='medium-14 text-black'>{book.name}</span>
         </p>
         {/* BOOK DATA */}
