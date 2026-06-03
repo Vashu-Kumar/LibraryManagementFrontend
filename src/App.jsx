@@ -1,11 +1,35 @@
-import React from 'react'
+import AppRoutes from "./routes/AppRoutes";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
-  return (
-    <div>
-      Welcome to Central Library
-    </div>
-  )
-}
+    return (
+        <>
+            <AppRoutes />
+            <Toaster
+                position="top-right"
+                toastOptions={{
+                    duration: 3000,
+                    style: {
+                        background: "#1f2937",
+                        color: "#f9fafb",
+                        border: "1px solid #374151"
+                    },
+                    success: {
+                        iconTheme: {
+                            primary: "#10b981",
+                            secondary: "#fff"
+                        }
+                    },
+                    error: {
+                        iconTheme: {
+                            primary: "#ef4444",
+                            secondary: "#fff"
+                        }
+                    }
+                }}
+            />
+        </>
+    );
+};
 
-export default App
+export default App;
