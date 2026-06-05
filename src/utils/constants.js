@@ -140,22 +140,120 @@ export const MEMBERSHIP_TYPES = [
 ];
 
 
-// DEPARTMENTS
-export const DEPARTMENTS = [
-    { value: "COMPUTER_SCIENCE",          label: "Computer Science"          },
-    { value: "INFORMATION_TECHNOLOGY",    label: "Information Technology"    },
-    { value: "MECHANICAL_ENGINEERING",    label: "Mechanical Engineering"    },
-    { value: "CIVIL_ENGINEERING",         label: "Civil Engineering"         },
-    { value: "ELECTRICAL_ENGINEERING",    label: "Electrical Engineering"    },
-    { value: "ELECTRONICS_COMMUNICATION", label: "Electronics & Communication"},
-    { value: "CHEMICAL_ENGINEERING",      label: "Chemical Engineering"      },
-    { value: "BIOTECHNOLOGY",             label: "Biotechnology"             },
-    { value: "MATHEMATICS",               label: "Mathematics"               },
-    { value: "PHYSICS",                   label: "Physics"                   },
-    { value: "COMMERCE",                  label: "Commerce"                  },
-    { value: "LAW",                       label: "Law"                       },
-    { value: "GENERAL",                   label: "General"                   }
-];
+// // DEPARTMENTS
+// export const DEPARTMENTS = [
+//     { value: "COMPUTER_SCIENCE",          label: "Computer Science"          },
+//     { value: "INFORMATION_TECHNOLOGY",    label: "Information Technology"    },
+//     { value: "MECHANICAL_ENGINEERING",    label: "Mechanical Engineering"    },
+//     { value: "CIVIL_ENGINEERING",         label: "Civil Engineering"         },
+//     { value: "ELECTRICAL_ENGINEERING",    label: "Electrical Engineering"    },
+//     { value: "ELECTRONICS_COMMUNICATION", label: "Electronics & Communication"},
+//     { value: "CHEMICAL_ENGINEERING",      label: "Chemical Engineering"      },
+//     { value: "BIOTECHNOLOGY",             label: "Biotechnology"             },
+//     { value: "MATHEMATICS",               label: "Mathematics"               },
+//     { value: "PHYSICS",                   label: "Physics"                   },
+//     { value: "COMMERCE",                  label: "Commerce"                  },
+//     { value: "LAW",                       label: "Law"                       },
+//     { value: "GENERAL",                   label: "General"                   }
+// ];
+
+
+export const DEPARTMENT_COURSES = {
+    COMPUTER_SCIENCE: [
+        "B.Tech",
+        "M.Tech",
+        "BCA",
+        "MCA",
+        "B.Sc (CS)",
+        "M.Sc (CS)",
+        "PhD"
+    ],
+    INFORMATION_TECHNOLOGY: [
+        "B.Tech",
+        "M.Tech",
+        "BCA",
+        "MCA",
+        "PhD"
+    ],
+    MECHANICAL_ENGINEERING: [
+        "B.Tech",
+        "M.Tech",
+        "Diploma",
+        "PhD"
+    ],
+    CIVIL_ENGINEERING: [
+        "B.Tech",
+        "M.Tech",
+        "Diploma",
+        "PhD"
+    ],
+    ELECTRICAL_ENGINEERING: [
+        "B.Tech",
+        "M.Tech",
+        "Diploma",
+        "PhD"
+    ],
+    ELECTRONICS_COMMUNICATION: [
+        "B.Tech",
+        "M.Tech",
+        "Diploma",
+        "PhD"
+    ],
+    CHEMICAL_ENGINEERING: [
+        "B.Tech",
+        "M.Tech",
+        "Diploma",
+        "PhD"
+    ],
+    BIOTECHNOLOGY: [
+        "B.Tech",
+        "M.Tech",
+        "B.Sc",
+        "M.Sc",
+        "PhD"
+    ],
+    MATHEMATICS: [
+        "B.Sc",
+        "M.Sc",
+        "B.Ed",
+        "M.Ed",
+        "PhD"
+    ],
+    PHYSICS: [
+        "B.Sc",
+        "M.Sc",
+        "B.Ed",
+        "M.Ed",
+        "PhD"
+    ],
+    COMMERCE: [
+        "B.Com",
+        "M.Com",
+        "BBA",
+        "MBA",
+        "CA Foundation",
+        "PhD"
+    ],
+    LAW: [
+        "LLB",
+        "LLM",
+        "BA LLB",
+        "BBA LLB",
+        "PhD"
+    ],
+    GENERAL: [
+        "B.Tech",
+        "BCA",
+        "B.Sc",
+        "B.Com",
+        "BA",
+        "MBA",
+        "MCA",
+        "PhD",
+        "Other"
+    ]
+};
+
 
 // PAYMENT METHODS
 export const PAYMENT_METHODS = [
