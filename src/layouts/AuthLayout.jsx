@@ -2,39 +2,45 @@ import { Outlet, Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const AuthLayout = () => {
-
     const { isLoggedIn, getDashboardRoute } = useAuth();
 
-    // Already logged in → redirect to dashboard
     if (isLoggedIn) {
         return <Navigate to={getDashboardRoute()} replace />;
     }
 
     return (
-        <div style={{
-            minHeight: "100vh",
-            background: "#0a0f1e",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: "Georgia, serif"
-        }}>
-            {/* Background gradient */}
-            <div style={{
-                position: "fixed",
-                inset: 0,
-                zIndex: 0,
-                backgroundImage: `
-                    radial-gradient(circle at 20% 20%,
-                        rgba(99,102,241,0.08) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 80%,
-                        rgba(245,200,66,0.06) 0%, transparent 50%)
-                `,
-                pointerEvents: "none"
-            }} />
+        <div
+            className="
+                min-h-screen w-full
+                flex items-center justify-center
+                bg-gradient-to-b from-pink-100 to-blue-100
+                relative overflow-hidden
+                font-serif
+            "
+        >
+            {/* Decorative Blobs */}
+            <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl" />
 
             {/* Content */}
-            <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
+            <div className="relative z-10 flex flex-col items-center">
+
+                {/* Library Branding */}
+                <div className="flex items-center gap-4 mb-8">
+                    <span className="text-5xl">📚</span>
+
+                    <div>
+                        <h1 className="text-4xl font-bold text-yellow-500 tracking-wide">
+                            Central Library
+                        </h1>
+
+                        <p className="text-sm text-[#1423f0] tracking-[0.25em] uppercase">
+                            Digital Library Management System
+                        </p>
+                    </div>
+                </div>
+
+                {/* Login / Register Pages */}
                 <Outlet />
             </div>
         </div>

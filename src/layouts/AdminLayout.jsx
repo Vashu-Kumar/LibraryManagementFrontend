@@ -33,7 +33,7 @@ const AdminLayout = () => {
         <div style={{
             display: "flex",
             minHeight: "100vh",
-            background: "#0a0f1e",
+            background: "#445da7",
             fontFamily: "Georgia, serif",
             color: "#e8e0d0"
         }}>

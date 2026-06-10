@@ -7,20 +7,21 @@ import toast from "react-hot-toast";
 
 const Login = () => {
 
-    const navigate  = useNavigate();
+    const navigate = useNavigate();
     const { setAuthData, getDashboardRoute } = useAuth();
 
-    const [loading, setLoading]    = useState(false);
-    const [loginType, setLoginType]  = useState("email"); // email | rollNumber | studentId
-    const [formData, setFormData]   = useState({
-        email:     "",
+    const [loading,   setLoading]   = useState(false);
+    const [loginType, setLoginType] = useState("email");
+    const [formData,  setFormData]  = useState({
+        email:      "",
         rollNumber: "",
         studentId:  "",
-        password:  ""
+        password:   ""
     });
     const [errors, setErrors] = useState({});
 
     // ── DEMO ACCOUNTS ────────────────────
+
     const demoAccounts = [
         {
             label:    "Admin",
@@ -54,27 +55,23 @@ const Login = () => {
     };
 
     // ── VALIDATION ───────────────────────
+
     const validate = () => {
         const newErrors = {};
-
-        if (loginType === "email" && !formData.email) {
-            newErrors.email = "Email is required";
-        }
-        if (loginType === "rollNumber" && !formData.rollNumber) {
+        if (loginType === "email"      && !formData.email)
+            newErrors.email      = "Email is required";
+        if (loginType === "rollNumber" && !formData.rollNumber)
             newErrors.rollNumber = "Roll number is required";
-        }
-        if (loginType === "studentId" && !formData.studentId) {
-            newErrors.studentId = "Student ID is required";
-        }
-        if (!formData.password) {
-            newErrors.password = "Password is required";
-        }
-
+        if (loginType === "studentId"  && !formData.studentId)
+            newErrors.studentId  = "Student ID is required";
+        if (!formData.password)
+            newErrors.password   = "Password is required";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
     // ── SUBMIT ───────────────────────────
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validate()) return;
@@ -82,10 +79,9 @@ const Login = () => {
         setLoading(true);
         try {
             const payload = { password: formData.password };
-
-            if (loginType === "email") payload.email = formData.email;
+            if (loginType === "email")      payload.email      = formData.email;
             if (loginType === "rollNumber") payload.rollNumber = formData.rollNumber;
-            if (loginType === "studentId") payload.studentId  = formData.studentId;
+            if (loginType === "studentId")  payload.studentId  = formData.studentId;
 
             const response = await login(payload);
             setAuthData(response.data);
@@ -99,44 +95,27 @@ const Login = () => {
         }
     };
 
-    // ── INPUT STYLE ──────────────────────
+    // ── INPUT CLASS ──────────────────────
+
     const inputClass = (field) => `
-        w-full px-4 py-3 rounded-xl
-        bg-white/5 border
+        w-full px-12 py-6 rounded-xl bg-white/5 border
         ${errors[field]
             ? "border-red-500/60 focus:border-red-500"
             : "border-white/10 focus:border-yellow-400/60"
         }
-        text-[#e8e0d0] placeholder-gray-500
+        text-[#000] placeholder-gray-500
         focus:outline-none focus:bg-white/8
-        transition-all duration-200 text-sm
-        font-serif
+        transition-all duration-200 text-sm font-serif
     `;
 
     return (
-        <div className="min-h-screen flex items-center justify-center
-            px-4 font-serif"
+        <div className="w-full max-w-md px-4 font-serif"
         >
             <div className="w-full max-w-md">
 
-                {/* ── LOGO ─────────────────────────── */}
-                <div className="text-center mb-8">
-                    <div className="text-4xl mb-3">📚</div>
-                    <h1 className="text-2xl font-bold text-yellow-400
-                        tracking-widest"
-                    >
-                        Central Library
-                    </h1>
-                    <p className="text-gray-500 text-xs tracking-widest
-                        uppercase mt-1"
-                    >
-                        Digital Library System
-                    </p>
-                </div>
-
                 {/* ── DEMO ACCOUNTS ────────────────── */}
                 <div className="mb-6">
-                    <p className="text-xs text-gray-500 text-center
+                    <p className="text-xs text-red-800 text-center
                         uppercase tracking-widest mb-3"
                     >
                         Try Demo Accounts
@@ -163,18 +142,18 @@ const Login = () => {
                 <div className="bg-white/3 border border-white/7
                     rounded-2xl p-8"
                 >
-                    <h2 className="text-xl font-bold mb-6 text-[#e8e0d0]">
+                    <h2 className="text-xl font-bold mb-6 text-[#3746ec]">
                         Sign In
                     </h2>
 
                     {/* Login Type Tabs */}
-                    <div className="flex gap-1 p-1 bg-white/5 rounded-xl
-                        mb-6"
+                    <div className="flex gap-1 p-1 bg-white/5
+                        rounded-xl mb-6"
                     >
                         {[
-                            { value: "email", label: "Email" },
-                            { value: "rollNumber", label: "Roll No." },
-                            { value: "studentId", label: "Student ID" }
+                            { value: "email",      label: "Email"      },
+                            { value: "rollNumber", label: "Roll No."   },
+                            { value: "studentId",  label: "Student ID" }
                         ].map(tab => (
                             <button
                                 key={tab.value}
@@ -188,7 +167,7 @@ const Login = () => {
                                     cursor-pointer border-none
                                     ${loginType === tab.value
                                         ? "bg-yellow-400 text-[#0a0f1e]"
-                                        : "text-gray-400 bg-transparent"
+                                        : "text-gray-600 bg-transparent"
                                     }
                                 `}
                             >
@@ -202,7 +181,7 @@ const Login = () => {
                         {/* Dynamic Credential Field */}
                         {loginType === "email" && (
                             <div>
-                                <label className="block text-xs text-gray-400
+                                <label className="block text-xs text-gray-700
                                     mb-2 uppercase tracking-wider"
                                 >
                                     Email
@@ -227,7 +206,7 @@ const Login = () => {
 
                         {loginType === "rollNumber" && (
                             <div>
-                                <label className="block text-xs text-gray-400
+                                <label className="block text-xs text-gray-700
                                     mb-2 uppercase tracking-wider"
                                 >
                                     Roll Number
@@ -252,7 +231,7 @@ const Login = () => {
 
                         {loginType === "studentId" && (
                             <div>
-                                <label className="block text-xs text-gray-400
+                                <label className="block text-xs text-gray-700
                                     mb-2 uppercase tracking-wider"
                                 >
                                     Student ID
@@ -277,7 +256,7 @@ const Login = () => {
 
                         {/* Password */}
                         <div>
-                            <label className="block text-xs text-gray-400
+                            <label className="block text-xs text-gray-700
                                 mb-2 uppercase tracking-wider"
                             >
                                 Password
@@ -299,12 +278,12 @@ const Login = () => {
                             )}
                         </div>
 
-                        {/* Submit Button */}
+                        {/* Submit */}
                         <button
                             type="submit"
                             disabled={loading}
                             className={`
-                                w-full py-3 rounded-xl font-bold text-sm
+                                w-full py-8 rounded-xl font-bold text-sm
                                 transition-all duration-200 border-none
                                 font-serif cursor-pointer mt-2
                                 ${loading
@@ -322,7 +301,8 @@ const Login = () => {
                         New student?{" "}
                         <Link
                             to={ROUTES.REGISTER}
-                            className="text-yellow-400 hover:text-yellow-300
+                            className="text-yellow-600 text-bold
+                            hover:text-yellow-300
                                 transition-colors"
                         >
                             Register here
