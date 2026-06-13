@@ -10,46 +10,45 @@ const Login = () => {
     const navigate = useNavigate();
     const { setAuthData, getDashboardRoute } = useAuth();
 
-    const [loading,   setLoading]   = useState(false);
+    const [loading, setLoading] = useState(false);
     const [loginType, setLoginType] = useState("email");
-    const [formData,  setFormData]  = useState({
-        email:      "",
+    const [formData, setFormData] = useState({
+        email: "",
         rollNumber: "",
-        studentId:  "",
-        password:   ""
+        studentId: "",
+        password: ""
     });
     const [errors, setErrors] = useState({});
 
     // ── DEMO ACCOUNTS ────────────────────
-
     const demoAccounts = [
         {
-            label:    "Admin",
-            email:    "admin@library.com",
-            password: "admin@123",
-            color:    "bg-indigo-500/20 border-indigo-500/40 text-indigo-400"
+            label: "Admin",
+            email: import.meta.env.VITE_DEMO_ADMIN_EMAIL,
+            password: import.meta.env.VITE_DEMO_ADMIN_PASSWORD,
+            color: "bg-indigo-500/20 border-indigo-500/40 text-indigo-400"
         },
         {
-            label:    "Librarian",
-            email:    "librarian@library.com",
-            password: "librarian@123",
-            color:    "bg-emerald-500/20 border-emerald-500/40 text-emerald-400"
+            label: "Librarian",
+            email: import.meta.env.VITE_DEMO_LIBRARIAN_EMAIL,
+            password: import.meta.env.VITE_DEMO_LIBRARIAN_PASSWORD,
+            color: "bg-emerald-500/20 border-emerald-500/40 text-emerald-400"
         },
         {
-            label:    "Student",
-            email:    "student@library.com",
-            password: "student@123",
-            color:    "bg-yellow-500/20 border-yellow-500/40 text-yellow-400"
+            label: "Student",
+            email: import.meta.env.VITE_DEMO_STUDENT_EMAIL,
+            password: import.meta.env.VITE_DEMO_STUDENT_PASSWORD,
+            color: "bg-yellow-500/20 border-yellow-500/40 text-yellow-400"
         }
     ];
 
     const fillDemo = (account) => {
         setLoginType("email");
         setFormData({
-            email:      account.email,
+            email: account.email,
             rollNumber: "",
-            studentId:  "",
-            password:   account.password
+            studentId: "",
+            password: account.password
         });
         setErrors({});
     };
@@ -58,14 +57,14 @@ const Login = () => {
 
     const validate = () => {
         const newErrors = {};
-        if (loginType === "email"      && !formData.email)
-            newErrors.email      = "Email is required";
+        if (loginType === "email" && !formData.email)
+            newErrors.email = "Email is required";
         if (loginType === "rollNumber" && !formData.rollNumber)
             newErrors.rollNumber = "Roll number is required";
-        if (loginType === "studentId"  && !formData.studentId)
-            newErrors.studentId  = "Student ID is required";
+        if (loginType === "studentId" && !formData.studentId)
+            newErrors.studentId = "Student ID is required";
         if (!formData.password)
-            newErrors.password   = "Password is required";
+            newErrors.password = "Password is required";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -79,9 +78,9 @@ const Login = () => {
         setLoading(true);
         try {
             const payload = { password: formData.password };
-            if (loginType === "email")      payload.email      = formData.email;
+            if (loginType === "email") payload.email = formData.email;
             if (loginType === "rollNumber") payload.rollNumber = formData.rollNumber;
-            if (loginType === "studentId")  payload.studentId  = formData.studentId;
+            if (loginType === "studentId") payload.studentId = formData.studentId;
 
             const response = await login(payload);
             setAuthData(response.data);
@@ -151,9 +150,9 @@ const Login = () => {
                         rounded-xl mb-6"
                     >
                         {[
-                            { value: "email",      label: "Email"      },
-                            { value: "rollNumber", label: "Roll No."   },
-                            { value: "studentId",  label: "Student ID" }
+                            { value: "email", label: "Email" },
+                            { value: "rollNumber", label: "Roll No." },
+                            { value: "studentId", label: "Student ID" }
                         ].map(tab => (
                             <button
                                 key={tab.value}

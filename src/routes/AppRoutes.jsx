@@ -1,3 +1,5 @@
+// src/routes/AppRoutes.jsx
+
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { ROLES, ROUTES } from "../utils/constants";
@@ -34,6 +36,12 @@ import OverdueList         from "../pages/librarian/OverdueList";
 import ManageFines         from "../pages/librarian/ManageFines";
 import ManageReservations  from "../pages/librarian/ManageReservations";
 
+// Admin Pages
+import AdminDashboard     from "../pages/admin/AdminDashboard";
+import ManageUsers        from "../pages/admin/ManageUsers";
+import ManageLibrarians   from "../pages/admin/ManageLibrarians";
+import ManageCategories   from "../pages/admin/ManageCategories";
+import Reports            from "../pages/admin/Reports";
 
 const AppRoutes = () => {
 
@@ -143,6 +151,36 @@ const AppRoutes = () => {
                 <Route
                     path={ROUTES.LIBRARIAN.RESERVATIONS}
                     element={<ManageReservations />}
+                />
+            </Route>
+
+            {/* ── ADMIN ROUTES ──────────────────── */}
+            <Route
+                element={
+                    <PrivateRoute allowedRoles={[ROLES.ADMIN]}>
+                        <AdminLayout />
+                    </PrivateRoute>
+                }
+            >
+                <Route
+                    path={ROUTES.ADMIN.DASHBOARD}
+                    element={<AdminDashboard />}
+                />
+                <Route
+                    path={ROUTES.ADMIN.USERS}
+                    element={<ManageUsers />}
+                />
+                <Route
+                    path={ROUTES.ADMIN.LIBRARIANS}
+                    element={<ManageLibrarians />}
+                />
+                <Route
+                    path={ROUTES.ADMIN.CATEGORIES}
+                    element={<ManageCategories />}
+                />
+                <Route
+                    path={ROUTES.ADMIN.REPORTS}
+                    element={<Reports />}
                 />
             </Route>
 

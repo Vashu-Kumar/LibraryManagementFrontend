@@ -8,22 +8,22 @@ import toast from "react-hot-toast";
 
 const AddBook = () => {
 
-    const navigate             = useNavigate();
+    const navigate = useNavigate();
     const { userId: librarianId } = useAuth();
 
     const [categories, setCategories] = useState([]);
-    const [loading,    setLoading]    = useState(false);
-    const [formData,   setFormData]   = useState({
-        title:        "",
-        author:       "",
-        isbn:         "",
-        description:  "",
-        publisher:    "",
-        publishYear:  "",
-        totalPages:   "",
-        categoryId:   "",
-        totalCopies:  "",
-        coverImageUrl:""
+    const [loading, setLoading] = useState(false);
+    const [formData, setFormData] = useState({
+        title: "",
+        author: "",
+        isbn: "",
+        description: "",
+        publisher: "",
+        publishYear: "",
+        totalPages: "",
+        categoryId: "",
+        totalCopies: "",
+        coverImageUrl: ""
     });
     const [errors, setErrors] = useState({});
 
@@ -35,10 +35,10 @@ const AddBook = () => {
 
     const validate = () => {
         const e = {};
-        if (!formData.title.trim())  e.title      = "Required";
-        if (!formData.author.trim()) e.author     = "Required";
-        if (!formData.publishYear)   e.publishYear = "Required";
-        if (!formData.categoryId)    e.categoryId  = "Required";
+        if (!formData.title.trim()) e.title = "Required";
+        if (!formData.author.trim()) e.author = "Required";
+        if (!formData.publishYear) e.publishYear = "Required";
+        if (!formData.categoryId) e.categoryId = "Required";
         if (!formData.totalCopies || formData.totalCopies < 1)
             e.totalCopies = "At least 1 copy required";
         setErrors(e);
@@ -58,13 +58,13 @@ const AddBook = () => {
         try {
             const payload = {
                 ...formData,
-                publishYear:  parseInt(formData.publishYear),
-                totalCopies:  parseInt(formData.totalCopies),
-                totalPages:   formData.totalPages
+                publishYear: parseInt(formData.publishYear),
+                totalCopies: parseInt(formData.totalCopies),
+                totalPages: formData.totalPages
                     ? parseInt(formData.totalPages) : null,
-                categoryId:   parseInt(formData.categoryId),
-                isbn:         formData.isbn || null,
-                coverImageUrl:formData.coverImageUrl || null
+                categoryId: parseInt(formData.categoryId),
+                isbn: formData.isbn || null,
+                coverImageUrl: formData.coverImageUrl || null
             };
             await addBook(payload, librarianId);
             toast.success("Book added successfully!");

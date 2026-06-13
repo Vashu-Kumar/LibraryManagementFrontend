@@ -8,12 +8,12 @@ import toast from "react-hot-toast";
 
 const BookDetail = () => {
 
-    const { id }     = useParams();
-    const navigate   = useNavigate();
+    const { id } = useParams();
+    const navigate = useNavigate();
     const { userId } = useAuth();
 
-    const [book,      setBook]      = useState(null);
-    const [loading,   setLoading]   = useState(true);
+    const [book, setBook] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [reserving, setReserving] = useState(false);
 
     useEffect(() => {
@@ -47,7 +47,7 @@ const BookDetail = () => {
     };
 
     if (loading) return <Loader />;
-    if (!book)   return null;
+    if (!book) return null;
 
     return (
         <div className="font-serif text-[#e8e0d0] max-w-4xl">
@@ -90,11 +90,10 @@ const BookDetail = () => {
                             : "bg-red-500/10 border-red-500/20"
                         }
                     `}>
-                        <p className={`text-lg font-bold ${
-                            book.available
+                        <p className={`text-lg font-bold ${book.available
                                 ? "text-emerald-400"
                                 : "text-red-400"
-                        }`}>
+                            }`}>
                             {book.available ? "Available" : "Not Available"}
                         </p>
                         <p className="text-xs text-gray-500 mt-1">
@@ -148,12 +147,12 @@ const BookDetail = () => {
                     {/* Info Grid */}
                     <div className="grid grid-cols-2 gap-3">
                         {[
-                            { label: "ISBN",        value: book.isbn         || "N/A" },
-                            { label: "Publisher",   value: book.publisher    || "N/A" },
-                            { label: "Year",        value: book.publishYear  || "N/A" },
-                            { label: "Pages",       value: book.totalPages   || "N/A" },
-                            { label: "Total Copies",value: book.totalCopies           },
-                            { label: "Available",   value: book.availableCopies       }
+                            { label: "ISBN", value: book.isbn || "N/A" },
+                            { label: "Publisher", value: book.publisher || "N/A" },
+                            { label: "Year", value: book.publishYear || "N/A" },
+                            { label: "Pages", value: book.totalPages || "N/A" },
+                            { label: "Total Copies", value: book.totalCopies },
+                            { label: "Available", value: book.availableCopies }
                         ].map((item, i) => (
                             <div
                                 key={i}

@@ -3,7 +3,7 @@ import { API_BASE_URL } from "../utils/constants";
 import { getToken, clearAuth } from "../utils/tokenUtils";
 
 // AXIOS INSTANCE
- const api = axios.create({
+const api = axios.create({
     baseURL: API_BASE_URL,
     headers: {
         "Content-Type": "application/json"

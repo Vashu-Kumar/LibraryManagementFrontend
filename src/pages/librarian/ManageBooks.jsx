@@ -14,9 +14,9 @@ const ManageBooks = () => {
 
     const navigate = useNavigate();
 
-    const [books,    setBooks]    = useState([]);
-    const [loading,  setLoading]  = useState(true);
-    const [keyword,  setKeyword]  = useState("");
+    const [books, setBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [keyword, setKeyword] = useState("");
     const [deleting, setDeleting] = useState(null);
 
     useEffect(() => { fetchBooks(); }, []);

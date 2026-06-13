@@ -70,7 +70,7 @@ const ManageCategories = () => {
     const handleEdit = (category) => {
         setEditing(category);
         setFormData({
-            name:        category.name,
+            name: category.name,
             description: category.description || ""
         });
         setShowForm(true);

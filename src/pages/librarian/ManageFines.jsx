@@ -8,11 +8,11 @@ const ManageFines = () => {
 
     const { userId: librarianId } = useAuth();
 
-    const [fines,   setFines]   = useState([]);
+    const [fines, setFines] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [filter,  setFilter]  = useState("PENDING");
-    const [paying,  setPaying]  = useState(null);
-    const [method,  setMethod]  = useState("CASH");
+    const [filter, setFilter] = useState("PENDING");
+    const [paying, setPaying] = useState(null);
+    const [method, setMethod] = useState("CASH");
 
     useEffect(() => { fetchFines(); }, []);
 
@@ -45,9 +45,9 @@ const ManageFines = () => {
     };
 
     const filtered = fines.filter(f => {
-        if (filter === "ALL")     return true;
+        if (filter === "ALL") return true;
         if (filter === "PENDING") return f.status === "PENDING";
-        if (filter === "PAID")    return f.status === "PAID";
+        if (filter === "PAID") return f.status === "PAID";
         return true;
     });
 
@@ -191,11 +191,10 @@ const ManageFines = () => {
                                 flex-shrink-0"
                             >
                                 <div className="text-right">
-                                    <p className={`text-xl font-bold ${
-                                        fine.status === "PENDING"
+                                    <p className={`text-xl font-bold ${fine.status === "PENDING"
                                             ? "text-orange-400"
                                             : "text-emerald-400"
-                                    }`}>
+                                        }`}>
                                         ₹{fine.amount?.toFixed(2)}
                                     </p>
                                     <StatusBadge status={fine.status} />
@@ -233,7 +232,7 @@ const ManageFines = () => {
 const StatusBadge = ({ status }) => {
     const colors = {
         PENDING: "bg-orange-500/15 text-orange-400 border-orange-500/30",
-        PAID:    "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+        PAID: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
     };
     return (
         <span className={`

@@ -9,15 +9,15 @@ const ReturnBook = () => {
 
     const { userId: librarianId } = useAuth();
 
-    const [query,           setQuery]           = useState("");
-    const [students,        setStudents]        = useState([]);
+    const [query, setQuery] = useState("");
+    const [students, setStudents] = useState([]);
     const [selectedStudent, setSelectedStudent] = useState(null);
-    const [activeLoans,     setActiveLoans]     = useState([]);
-    const [searching,       setSearching]       = useState(false);
-    const [returning,       setReturning]       = useState(null);
-    const [returned,        setReturned]        = useState(null);
-    const [condition,       setCondition]       = useState("GOOD");
-    const [remarks,         setRemarks]         = useState("");
+    const [activeLoans, setActiveLoans] = useState([]);
+    const [searching, setSearching] = useState(false);
+    const [returning, setReturning] = useState(null);
+    const [returned, setReturned] = useState(null);
+    const [condition, setCondition] = useState("GOOD");
+    const [remarks, setRemarks] = useState("");
 
     // ── SEARCH STUDENT ───────────────────
     const handleSearch = async (e) => {
@@ -97,11 +97,10 @@ const ReturnBook = () => {
                     <div className="text-5xl mb-4">
                         {returned.fineApplied ? "⚠️" : "✅"}
                     </div>
-                    <h2 className={`text-xl font-bold mb-2 ${
-                        returned.fineApplied
+                    <h2 className={`text-xl font-bold mb-2 ${returned.fineApplied
                             ? "text-orange-400"
                             : "text-blue-400"
-                    }`}>
+                        }`}>
                         Book Returned
                         {returned.fineApplied && " — Fine Applied"}
                     </h2>
@@ -110,9 +109,9 @@ const ReturnBook = () => {
                         text-left space-y-2"
                     >
                         {[
-                            { label: "Book",    value: returned.bookTitle   },
+                            { label: "Book", value: returned.bookTitle },
                             { label: "Student", value: returned.studentName },
-                            { label: "Returned",value: returned.returnDate  },
+                            { label: "Returned", value: returned.returnDate },
                             returned.fineApplied && {
                                 label: "Fine",
                                 value: `₹${returned.fineAmount}`
@@ -124,11 +123,10 @@ const ReturnBook = () => {
                                 <span className="text-gray-500">
                                     {item.label}
                                 </span>
-                                <span className={`font-semibold ${
-                                    item.label === "Fine"
+                                <span className={`font-semibold ${item.label === "Fine"
                                         ? "text-orange-400"
                                         : ""
-                                }`}>
+                                    }`}>
                                     {item.value}
                                 </span>
                             </div>

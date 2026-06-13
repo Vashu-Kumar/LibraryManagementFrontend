@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const LibrarianDashboard = () => {
 
     const navigate = useNavigate();
-    const [stats,   setStats]   = useState(null);
+    const [stats, setStats] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => { fetchStats(); }, []);
@@ -27,83 +27,83 @@ const LibrarianDashboard = () => {
     const statCards = [
         {
             label: "Total Books",
-            value: stats?.totalBooks          ?? 0,
-            icon:  "📚",
+            value: stats?.totalBooks ?? 0,
+            icon: "📚",
             color: "text-indigo-400",
-            bg:    "bg-indigo-500/10 border-indigo-500/20"
+            bg: "bg-indigo-500/10 border-indigo-500/20"
         },
         {
             label: "Available",
-            value: stats?.totalAvailableBooks  ?? 0,
-            icon:  "✅",
+            value: stats?.totalAvailableBooks ?? 0,
+            icon: "✅",
             color: "text-emerald-400",
-            bg:    "bg-emerald-500/10 border-emerald-500/20"
+            bg: "bg-emerald-500/10 border-emerald-500/20"
         },
         {
             label: "Issued",
-            value: stats?.totalIssuedBooks     ?? 0,
-            icon:  "📤",
+            value: stats?.totalIssuedBooks ?? 0,
+            icon: "📤",
             color: "text-blue-400",
-            bg:    "bg-blue-500/10 border-blue-500/20"
+            bg: "bg-blue-500/10 border-blue-500/20"
         },
         {
             label: "Overdue",
-            value: stats?.totalOverdueLoans    ?? 0,
-            icon:  "⏰",
+            value: stats?.totalOverdueLoans ?? 0,
+            icon: "⏰",
             color: "text-red-400",
-            bg:    "bg-red-500/10 border-red-500/20"
+            bg: "bg-red-500/10 border-red-500/20"
         },
         {
             label: "Pending Fines",
-            value: stats?.totalPendingFines    ?? 0,
-            icon:  "💰",
+            value: stats?.totalPendingFines ?? 0,
+            icon: "💰",
             color: "text-orange-400",
-            bg:    "bg-orange-500/10 border-orange-500/20"
+            bg: "bg-orange-500/10 border-orange-500/20"
         },
         {
             label: "Reservations",
             value: stats?.totalPendingReservations ?? 0,
-            icon:  "🔖",
+            icon: "🔖",
             color: "text-yellow-400",
-            bg:    "bg-yellow-500/10 border-yellow-500/20"
+            bg: "bg-yellow-500/10 border-yellow-500/20"
         }
     ];
 
     const quickActions = [
         {
             label: "Issue Book",
-            icon:  "📤",
-            path:  ROUTES.LIBRARIAN.ISSUE_BOOK,
+            icon: "📤",
+            path: ROUTES.LIBRARIAN.ISSUE_BOOK,
             color: "border-emerald-500/30 hover:bg-emerald-500/10 text-emerald-400"
         },
         {
             label: "Return Book",
-            icon:  "📥",
-            path:  ROUTES.LIBRARIAN.RETURN_BOOK,
+            icon: "📥",
+            path: ROUTES.LIBRARIAN.RETURN_BOOK,
             color: "border-blue-500/30 hover:bg-blue-500/10 text-blue-400"
         },
         {
             label: "Manage Books",
-            icon:  "📚",
-            path:  ROUTES.LIBRARIAN.MANAGE_BOOKS,
+            icon: "📚",
+            path: ROUTES.LIBRARIAN.MANAGE_BOOKS,
             color: "border-indigo-500/30 hover:bg-indigo-500/10 text-indigo-400"
         },
         {
             label: "Overdue List",
-            icon:  "⏰",
-            path:  ROUTES.LIBRARIAN.OVERDUE,
+            icon: "⏰",
+            path: ROUTES.LIBRARIAN.OVERDUE,
             color: "border-red-500/30 hover:bg-red-500/10 text-red-400"
         },
         {
             label: "Manage Fines",
-            icon:  "💰",
-            path:  ROUTES.LIBRARIAN.FINES,
+            icon: "💰",
+            path: ROUTES.LIBRARIAN.FINES,
             color: "border-orange-500/30 hover:bg-orange-500/10 text-orange-400"
         },
         {
             label: "Reservations",
-            icon:  "🔖",
-            path:  ROUTES.LIBRARIAN.RESERVATIONS,
+            icon: "🔖",
+            path: ROUTES.LIBRARIAN.RESERVATIONS,
             color: "border-yellow-500/30 hover:bg-yellow-500/10 text-yellow-400"
         }
     ];

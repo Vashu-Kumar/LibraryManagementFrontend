@@ -7,21 +7,21 @@ import toast from "react-hot-toast";
 
 const EditBook = () => {
 
-    const { id }   = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
 
     const [categories, setCategories] = useState([]);
-    const [loading,    setLoading]    = useState(true);
-    const [saving,     setSaving]     = useState(false);
-    const [formData,   setFormData]   = useState({
-        title:         "",
-        author:        "",
-        isbn:          "",
-        description:   "",
-        publisher:     "",
-        publishYear:   "",
-        totalPages:    "",
-        categoryId:    "",
+    const [loading, setLoading] = useState(true);
+    const [saving, setSaving] = useState(false);
+    const [formData, setFormData] = useState({
+        title: "",
+        author: "",
+        isbn: "",
+        description: "",
+        publisher: "",
+        publishYear: "",
+        totalPages: "",
+        categoryId: "",
         coverImageUrl: ""
     });
     const [errors, setErrors] = useState({});
@@ -33,14 +33,14 @@ const EditBook = () => {
         ]).then(([bookRes, catsRes]) => {
             const book = bookRes.data;
             setFormData({
-                title:         book.title         || "",
-                author:        book.author        || "",
-                isbn:          book.isbn          || "",
-                description:   book.description   || "",
-                publisher:     book.publisher     || "",
-                publishYear:   book.publishYear   || "",
-                totalPages:    book.totalPages    || "",
-                categoryId:    book.categoryId    || "",
+                title: book.title || "",
+                author: book.author || "",
+                isbn: book.isbn || "",
+                description: book.description || "",
+                publisher: book.publisher || "",
+                publishYear: book.publishYear || "",
+                totalPages: book.totalPages || "",
+                categoryId: book.categoryId || "",
                 coverImageUrl: book.coverImageUrl || ""
             });
             setCategories(catsRes.data);
@@ -52,7 +52,7 @@ const EditBook = () => {
 
     const validate = () => {
         const e = {};
-        if (!formData.title.trim())  e.title  = "Required";
+        if (!formData.title.trim()) e.title = "Required";
         if (!formData.author.trim()) e.author = "Required";
         setErrors(e);
         return Object.keys(e).length === 0;
@@ -73,11 +73,11 @@ const EditBook = () => {
                 ...formData,
                 publishYear: formData.publishYear
                     ? parseInt(formData.publishYear) : null,
-                totalPages:  formData.totalPages
-                    ? parseInt(formData.totalPages)  : null,
-                categoryId:  formData.categoryId
-                    ? parseInt(formData.categoryId)  : null,
-                isbn:          formData.isbn          || null,
+                totalPages: formData.totalPages
+                    ? parseInt(formData.totalPages) : null,
+                categoryId: formData.categoryId
+                    ? parseInt(formData.categoryId) : null,
+                isbn: formData.isbn || null,
                 coverImageUrl: formData.coverImageUrl || null
             };
             await updateBook(id, payload);

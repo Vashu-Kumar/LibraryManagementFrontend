@@ -7,9 +7,9 @@ import toast from "react-hot-toast";
 const OverdueList = () => {
 
     const navigate = useNavigate();
-    const [loans,    setLoans]    = useState([]);
-    const [loading,  setLoading]  = useState(true);
-    const [marking,  setMarking]  = useState(null);
+    const [loans, setLoans] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [marking, setMarking] = useState(null);
 
     useEffect(() => { fetchOverdue(); }, []);
 

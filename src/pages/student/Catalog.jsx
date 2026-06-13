@@ -14,15 +14,15 @@ import toast from "react-hot-toast";
 const Catalog = () => {
 
     const { userId } = useAuth();
-    const navigate   = useNavigate();
+    const navigate = useNavigate();
 
-    const [books,       setBooks]       = useState([]);
-    const [categories,  setCategories]  = useState([]);
-    const [loading,     setLoading]     = useState(true);
-    const [reserving,   setReserving]   = useState(null);
-    const [keyword,     setKeyword]     = useState("");
-    const [categoryId,  setCategoryId]  = useState("");
-    const [available,   setAvailable]   = useState(false);
+    const [books, setBooks] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [reserving, setReserving] = useState(null);
+    const [keyword, setKeyword] = useState("");
+    const [categoryId, setCategoryId] = useState("");
+    const [available, setAvailable] = useState(false);
 
     useEffect(() => {
         fetchData();

@@ -9,8 +9,8 @@ const MyReservations = () => {
     const { userId } = useAuth();
 
     const [reservations, setReservations] = useState([]);
-    const [loading,      setLoading]      = useState(true);
-    const [cancelling,   setCancelling]   = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [cancelling, setCancelling] = useState(null);
 
     useEffect(() => {
         fetchReservations();
@@ -90,8 +90,8 @@ const MyReservations = () => {
 // ── RESERVATION CARD ─────────────────────
 const ReservationCard = ({ reservation, onCancel, cancelling }) => {
 
-    const isPending   = reservation.status === "PENDING";
-    const isActive    = reservation.status === "ACTIVE";
+    const isPending = reservation.status === "PENDING";
+    const isActive = reservation.status === "ACTIVE";
     const isCancelled = reservation.status === "CANCELLED";
 
     return (
@@ -164,8 +164,8 @@ const ReservationCard = ({ reservation, onCancel, cancelling }) => {
 // ── HELPERS ──────────────────────────────
 const StatusBadge = ({ status }) => {
     const colors = {
-        PENDING:   "bg-yellow-500/15 text-yellow-400  border-yellow-500/30",
-        ACTIVE:    "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+        PENDING: "bg-yellow-500/15 text-yellow-400  border-yellow-500/30",
+        ACTIVE: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
         CANCELLED: "bg-red-500/15    text-red-400     border-red-500/30"
     };
     return (

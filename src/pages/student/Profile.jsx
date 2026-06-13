@@ -9,16 +9,16 @@ const Profile = () => {
 
     const { userId } = useAuth();
 
-    const [user,    setUser]    = useState(null);
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [tab,     setTab]     = useState("profile");
-    const [pwData,  setPwData]  = useState({
-        currentPassword:  "",
-        newPassword:      "",
-        confirmPassword:  ""
+    const [tab, setTab] = useState("profile");
+    const [pwData, setPwData] = useState({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: ""
     });
     const [pwLoading, setPwLoading] = useState(false);
-    const [pwErrors,  setPwErrors]  = useState({});
+    const [pwErrors, setPwErrors] = useState({});
 
     useEffect(() => {
         fetchUser();
@@ -64,9 +64,9 @@ const Profile = () => {
             );
             toast.success("Password changed successfully");
             setPwData({
-                currentPassword:  "",
-                newPassword:      "",
-                confirmPassword:  ""
+                currentPassword: "",
+                newPassword: "",
+                confirmPassword: ""
             });
             setPwErrors({});
         } catch (error) {
@@ -92,7 +92,7 @@ const Profile = () => {
     `;
 
     if (loading) return <Loader />;
-    if (!user)   return null;
+    if (!user) return null;
 
     return (
         <div className="font-serif text-[#e8e0d0] max-w-2xl">
@@ -124,8 +124,8 @@ const Profile = () => {
             {/* ── TABS ─────────────────────────── */}
             <div className="flex gap-1 p-1 bg-white/5 rounded-xl mb-6">
                 {[
-                    { value: "profile",  label: "Profile"         },
-                    { value: "password", label: "Change Password"  }
+                    { value: "profile", label: "Profile" },
+                    { value: "password", label: "Change Password" }
                 ].map(t => (
                     <button
                         key={t.value}
@@ -158,16 +158,16 @@ const Profile = () => {
 
                     <div className="grid grid-cols-2 gap-4 mb-6">
                         {[
-                            { label: "First Name",    value: user.firstName    },
-                            { label: "Last Name",     value: user.lastName     },
-                            { label: "Email",         value: user.email        },
-                            { label: "Student ID",    value: user.studentId    },
-                            { label: "Roll Number",   value: user.rollNumber   },
-                            { label: "Department",    value: getDepartmentLabel(user.department) },
-                            { label: "Course",        value: user.course       },
-                            { label: "Admission Year",value: user.admissionYear},
-                            { label: "Membership",    value: user.membershipType},
-                            { label: "Borrow Limit",  value: `${user.maxBorrowLimit} books` },
+                            { label: "First Name", value: user.firstName },
+                            { label: "Last Name", value: user.lastName },
+                            { label: "Email", value: user.email },
+                            { label: "Student ID", value: user.studentId },
+                            { label: "Roll Number", value: user.rollNumber },
+                            { label: "Department", value: getDepartmentLabel(user.department) },
+                            { label: "Course", value: user.course },
+                            { label: "Admission Year", value: user.admissionYear },
+                            { label: "Membership", value: user.membershipType },
+                            { label: "Borrow Limit", value: `${user.maxBorrowLimit} books` },
                             { label: "Loan Duration", value: `${user.borrowDurationDays} days` },
                             {
                                 label: "Membership Expiry",

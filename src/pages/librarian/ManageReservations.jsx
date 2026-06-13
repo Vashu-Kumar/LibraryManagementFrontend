@@ -12,9 +12,9 @@ const ManageReservations = () => {
     const { userId: librarianId } = useAuth();
 
     const [reservations, setReservations] = useState([]);
-    const [loading,      setLoading]      = useState(true);
-    const [filter,       setFilter]       = useState("PENDING");
-    const [processing,   setProcessing]   = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [filter, setFilter] = useState("PENDING");
+    const [processing, setProcessing] = useState(null);
 
     useEffect(() => { fetchReservations(); }, []);
 
@@ -62,9 +62,9 @@ const ManageReservations = () => {
     };
 
     const filtered = reservations.filter(r => {
-        if (filter === "ALL")       return true;
-        if (filter === "PENDING")   return r.status === "PENDING";
-        if (filter === "ACTIVE")    return r.status === "ACTIVE";
+        if (filter === "ALL") return true;
+        if (filter === "PENDING") return r.status === "PENDING";
+        if (filter === "ACTIVE") return r.status === "ACTIVE";
         if (filter === "CANCELLED") return r.status === "CANCELLED";
         return true;
     });
@@ -190,8 +190,8 @@ const ManageReservations = () => {
 // ── HELPERS ──────────────────────────────
 const StatusBadge = ({ status }) => {
     const colors = {
-        PENDING:   "bg-yellow-500/15 text-yellow-400  border-yellow-500/30",
-        ACTIVE:    "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+        PENDING: "bg-yellow-500/15 text-yellow-400  border-yellow-500/30",
+        ACTIVE: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
         CANCELLED: "bg-red-500/15    text-red-400     border-red-500/30"
     };
     return (

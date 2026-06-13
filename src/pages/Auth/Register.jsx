@@ -114,9 +114,7 @@ const Register = () => {
         }
     };
 
-    
     // INPUT
-
     const inputClass = (field) => `
         w-full px-4 py-3 rounded-xl
         bg-white/5 border
@@ -136,7 +134,6 @@ const Register = () => {
         { length: 6 },
         (_, i) => currentYear - i
     );
-
 
     return (
         <div className="min-h-screen flex items-center justify-center

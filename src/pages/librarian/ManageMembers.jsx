@@ -8,8 +8,8 @@ import toast from "react-hot-toast";
 const ManageMembers = () => {
 
     const [students, setStudents] = useState([]);
-    const [loading,  setLoading]  = useState(true);
-    const [keyword,  setKeyword]  = useState("");
+    const [loading, setLoading] = useState(true);
+    const [keyword, setKeyword] = useState("");
 
     useEffect(() => { fetchStudents(); }, []);
 

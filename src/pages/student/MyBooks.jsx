@@ -8,10 +8,10 @@ const MyBooks = () => {
 
     const { userId } = useAuth();
 
-    const [loans,    setLoans]    = useState([]);
-    const [loading,  setLoading]  = useState(true);
+    const [loans, setLoans] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [renewing, setRenewing] = useState(null);
-    const [filter,   setFilter]   = useState("ALL");
+    const [filter, setFilter] = useState("ALL");
 
     useEffect(() => {
         fetchLoans();
@@ -43,9 +43,9 @@ const MyBooks = () => {
     };
 
     const filtered = loans.filter(loan => {
-        if (filter === "ALL")      return true;
-        if (filter === "ACTIVE")   return loan.status === "ACTIVE";
-        if (filter === "OVERDUE")  return loan.status === "OVERDUE";
+        if (filter === "ALL") return true;
+        if (filter === "ACTIVE") return loan.status === "ACTIVE";
+        if (filter === "OVERDUE") return loan.status === "OVERDUE";
         if (filter === "RETURNED") return loan.status === "RETURNED";
         return true;
     });
@@ -110,9 +110,9 @@ const MyBooks = () => {
 // ── LOAN CARD ────────────────────────────
 const LoanCard = ({ loan, onRenew, renewing }) => {
 
-    const isOverdue  = loan.status === "OVERDUE" ||
+    const isOverdue = loan.status === "OVERDUE" ||
         (loan.status === "ACTIVE" && loan.overdueDays > 0);
-    const isActive   = loan.status === "ACTIVE";
+    const isActive = loan.status === "ACTIVE";
     const isReturned = loan.status === "RETURNED";
 
     return (
@@ -198,10 +198,10 @@ const LoanCard = ({ loan, onRenew, renewing }) => {
 // ── HELPERS ──────────────────────────────
 const StatusBadge = ({ status }) => {
     const colors = {
-        ACTIVE:   "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+        ACTIVE: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
         RETURNED: "bg-blue-500/15    text-blue-400    border-blue-500/30",
-        OVERDUE:  "bg-red-500/15     text-red-400     border-red-500/30",
-        LOST:     "bg-gray-500/15    text-gray-400    border-gray-500/30"
+        OVERDUE: "bg-red-500/15     text-red-400     border-red-500/30",
+        LOST: "bg-gray-500/15    text-gray-400    border-gray-500/30"
     };
     return (
         <span className={`

@@ -16,23 +16,23 @@ export const renewLoan = (id, studentId) =>
         params: { studentId }
     });
 
-export const getAllLoans          = ()         =>
+export const getAllLoans = () =>
     api.get(ENDPOINTS.LOANS.BASE);
 
-export const getLoanById          = (id)       =>
+export const getLoanById = (id) =>
     api.get(`${ENDPOINTS.LOANS.BASE}/${id}`);
 
-export const getLoansByStudent    = (studentId) =>
+export const getLoansByStudent = (studentId) =>
     api.get(`${ENDPOINTS.LOANS.STUDENT}/${studentId}`);
 
 export const getActiveLoansByStudent = (studentId) =>
     api.get(`${ENDPOINTS.LOANS.STUDENT}/${studentId}/active`);
 
-export const getOverdueLoans      = ()         =>
+export const getOverdueLoans = () =>
     api.get(ENDPOINTS.LOANS.OVERDUE);
 
-export const getRecentLoans       = ()         =>
+export const getRecentLoans = () =>
     api.get(ENDPOINTS.LOANS.RECENT);
 
-export const markAsLost           = (id)       =>
+export const markAsLost = (id) =>
     api.put(`${ENDPOINTS.LOANS.LOST}/${id}`);

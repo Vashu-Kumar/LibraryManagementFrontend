@@ -40,8 +40,8 @@ const Reports = () => {
     // ── CHART DATA ───────────────────────
     const bookStatsData = [
         { name: "Available", value: stats?.totalAvailableBooks ?? 0 },
-        { name: "Issued",    value: stats?.totalIssuedBooks ?? 0 },
-        { name: "Damaged",   value: stats?.totalDamagedBooks ?? 0 }
+        { name: "Issued",  value: stats?.totalIssuedBooks ?? 0 },
+        { name: "Damaged", value: stats?.totalDamagedBooks ?? 0 }
     ];
 
     const loanStatsData = [

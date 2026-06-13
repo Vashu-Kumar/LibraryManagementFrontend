@@ -9,16 +9,16 @@ const IssueBook = () => {
 
     const { userId: librarianId } = useAuth();
 
-    const [step,           setStep]           = useState(1);
-    const [studentQuery,   setStudentQuery]   = useState("");
-    const [bookQuery,      setBookQuery]      = useState("");
-    const [students,       setStudents]       = useState([]);
-    const [books,          setBooks]          = useState([]);
-    const [selectedStudent,setSelectedStudent]= useState(null);
-    const [selectedBook,   setSelectedBook]   = useState(null);
-    const [searching,      setSearching]      = useState(false);
-    const [issuing,        setIssuing]        = useState(false);
-    const [issued,         setIssued]         = useState(null);
+    const [step, setStep] = useState(1);
+    const [studentQuery, setStudentQuery] = useState("");
+    const [bookQuery, setBookQuery] = useState("");
+    const [students, setStudents] = useState([]);
+    const [books, setBooks] = useState([]);
+    const [selectedStudent, setSelectedStudent] = useState(null);
+    const [selectedBook, setSelectedBook] = useState(null);
+    const [searching, setSearching] = useState(false);
+    const [issuing, setIssuing] = useState(false);
+    const [issued, setIssued] = useState(null);
 
     // ── SEARCH STUDENT ───────────────────
     const handleSearchStudent = async (e) => {
@@ -100,11 +100,11 @@ const IssueBook = () => {
                         text-left space-y-2"
                     >
                         {[
-                            { label: "Book",    value: issued.bookTitle    },
-                            { label: "Student", value: issued.studentName  },
-                            { label: "Roll No", value: issued.rollNumber   },
-                            { label: "Issued",  value: issued.issueDate    },
-                            { label: "Due",     value: issued.dueDate      }
+                            { label: "Book", value: issued.bookTitle },
+                            { label: "Student", value: issued.studentName },
+                            { label: "Roll No", value: issued.rollNumber },
+                            { label: "Issued", value: issued.issueDate },
+                            { label: "Due", value: issued.dueDate }
                         ].map((item, i) => (
                             <div key={i} className="flex justify-between
                                 text-sm"
@@ -148,8 +148,8 @@ const IssueBook = () => {
             <div className="flex items-center gap-3 mb-8">
                 {[
                     { num: 1, label: "Select Student" },
-                    { num: 2, label: "Select Book"    },
-                    { num: 3, label: "Confirm Issue"  }
+                    { num: 2, label: "Select Book" },
+                    { num: 3, label: "Confirm Issue" }
                 ].map((s, i) => (
                     <div key={s.num} className="flex items-center gap-3">
                         <div className={`
@@ -162,19 +162,17 @@ const IssueBook = () => {
                         `}>
                             {step > s.num ? "✓" : s.num}
                         </div>
-                        <span className={`text-sm ${
-                            step >= s.num
+                        <span className={`text-sm ${step >= s.num
                                 ? "text-[#e8e0d0]"
                                 : "text-gray-500"
-                        }`}>
+                            }`}>
                             {s.label}
                         </span>
                         {i < 2 && (
-                            <div className={`flex-1 h-px w-8 ${
-                                step > s.num
+                            <div className={`flex-1 h-px w-8 ${step > s.num
                                     ? "bg-emerald-500"
                                     : "bg-white/10"
-                            }`} />
+                                }`} />
                         )}
                     </div>
                 ))}
@@ -427,22 +425,22 @@ const IssueBook = () => {
                     <div className="space-y-3 mb-6">
                         {[
                             {
-                                icon:  "👤",
+                                icon: "👤",
                                 label: "Student",
                                 value: `${selectedStudent.fullName} (${selectedStudent.rollNumber})`
                             },
                             {
-                                icon:  "📚",
+                                icon: "📚",
                                 label: "Book",
                                 value: selectedBook.title
                             },
                             {
-                                icon:  "✍️",
+                                icon: "✍️",
                                 label: "Author",
                                 value: selectedBook.author
                             },
                             {
-                                icon:  "📋",
+                                icon: "📋",
                                 label: "Available",
                                 value: `${selectedBook.availableCopies} copies`
                             }

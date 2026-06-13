@@ -7,9 +7,9 @@ const MyFines = () => {
 
     const { userId } = useAuth();
 
-    const [fines,   setFines]   = useState([]);
+    const [fines, setFines] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [filter,  setFilter]  = useState("ALL");
+    const [filter, setFilter] = useState("ALL");
 
     useEffect(() => {
         fetchFines();
@@ -28,9 +28,9 @@ const MyFines = () => {
     };
 
     const filtered = fines.filter(fine => {
-        if (filter === "ALL")     return true;
+        if (filter === "ALL") return true;
         if (filter === "PENDING") return fine.status === "PENDING";
-        if (filter === "PAID")    return fine.status === "PAID";
+        if (filter === "PAID") return fine.status === "PAID";
         return true;
     });
 
@@ -149,9 +149,8 @@ const FineCard = ({ fine }) => {
                 <div className="flex flex-col items-end gap-2
                     flex-shrink-0"
                 >
-                    <p className={`text-2xl font-bold ${
-                        isPending ? "text-red-400" : "text-emerald-400"
-                    }`}>
+                    <p className={`text-2xl font-bold ${isPending ? "text-red-400" : "text-emerald-400"
+                        }`}>
                         ₹{fine.amount?.toFixed(2)}
                     </p>
                     <StatusBadge status={fine.status} />
@@ -165,7 +164,7 @@ const FineCard = ({ fine }) => {
 const StatusBadge = ({ status }) => {
     const colors = {
         PENDING: "bg-red-500/15    text-red-400     border-red-500/30",
-        PAID:    "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+        PAID: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
     };
     return (
         <span className={`

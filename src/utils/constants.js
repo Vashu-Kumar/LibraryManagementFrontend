@@ -1,15 +1,13 @@
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
     || "http://localhost:8080";
 
-
 // ROLES
 export const ROLES = {
     ADMIN: "ADMIN",
     LIBRARIAN: "LIBRARIAN",
     STUDENT: "STUDENT"
-    
-};
 
+};
 
 // API ENDPOINTS
 export const ENDPOINTS = {
@@ -41,7 +39,7 @@ export const ENDPOINTS = {
         SEARCH: "/api/books/search",
         FILTER: "/api/books/filter",
         TOP_BORROWED: "/api/books/top-borrowed",
-        ADD_COPIES:   "/api/books",               // + /{id}/add-copies
+        ADD_COPIES: "/api/books",               // + /{id}/add-copies
         MARK_DAMAGED: "/api/books"                // + /{id}/mark-damaged
     },
 
@@ -55,7 +53,7 @@ export const ENDPOINTS = {
         BASE: "/api/loans",
         ISSUE: "/api/loans/issue",
         RETURN: "/api/loans/return",         // + /{id}
-        RENEW:  "/api/loans/renew",          // + /{id}
+        RENEW: "/api/loans/renew",          // + /{id}
         OVERDUE: "/api/loans/overdue",
         RECENT: "/api/loans/recent",
         STUDENT: "/api/loans/student",        // + /{id}
@@ -78,7 +76,7 @@ export const ENDPOINTS = {
         PAY: "/api/fines/pay",
         PENDING: "/api/fines/pending",
         STUDENT: "/api/fines/student",        // + /{id}
-        LOAN:    "/api/fines/loan"            // + /{id}
+        LOAN: "/api/fines/loan"            // + /{id}
     },
 
     // Dashboard
@@ -103,58 +101,58 @@ export const ROUTES = {
         BOOK_DETAIL: "/student/books/:id",
         MY_BOOKS: "/student/my-books",
         RESERVATIONS: "/student/reservations",
-        FINES:  "/student/fines",
+        FINES: "/student/fines",
         PROFILE: "/student/profile"
     },
 
     // Librarian
     LIBRARIAN: {
-        DASHBOARD:   "/librarian/dashboard",
-        ISSUE_BOOK:  "/librarian/issue",
+        DASHBOARD: "/librarian/dashboard",
+        ISSUE_BOOK: "/librarian/issue",
         RETURN_BOOK: "/librarian/return",
         MANAGE_BOOKS: "/librarian/books",
-        ADD_BOOK:   "/librarian/books/add",
-        EDIT_BOOK:  "/librarian/books/edit/:id",
-        MEMBERS:  "/librarian/members",
-        OVERDUE:  "/librarian/overdue",
-        FINES:   "/librarian/fines",
-        RESERVATIONS:  "/librarian/reservations"
+        ADD_BOOK: "/librarian/books/add",
+        EDIT_BOOK: "/librarian/books/edit/:id",
+        MEMBERS: "/librarian/members",
+        OVERDUE: "/librarian/overdue",
+        FINES: "/librarian/fines",
+        RESERVATIONS: "/librarian/reservations"
     },
 
     // Admin
     ADMIN: {
-        DASHBOARD:   "/admin/dashboard",
-        USERS:       "/admin/users",
-        LIBRARIANS:  "/admin/librarians",
-        CATEGORIES:  "/admin/categories",
-        REPORTS:     "/admin/reports"
+        DASHBOARD: "/admin/dashboard",
+        USERS: "/admin/users",
+        LIBRARIANS: "/admin/librarians",
+        CATEGORIES: "/admin/categories",
+        REPORTS: "/admin/reports"
     }
 };
 
 // MEMBERSHIP TYPES
 export const MEMBERSHIP_TYPES = [
     { value: "UNDERGRADUATE", label: "Undergraduate" },
-    { value: "POSTGRADUATE",  label: "Postgraduate"  },
-    { value: "STAFF", label: "Staff"         },
-    { value: "GUEST", label: "Guest"         }
+    { value: "POSTGRADUATE", label: "Postgraduate" },
+    { value: "STAFF", label: "Staff" },
+    // { value: "GUEST", label: "Guest" }
 ];
 
 
 // // DEPARTMENTS
 export const DEPARTMENTS = [
-    { value: "COMPUTER_SCIENCE",          label: "Computer Science"          },
-    { value: "INFORMATION_TECHNOLOGY",    label: "Information Technology"    },
-    { value: "MECHANICAL_ENGINEERING",    label: "Mechanical Engineering"    },
-    { value: "CIVIL_ENGINEERING",         label: "Civil Engineering"         },
-    { value: "ELECTRICAL_ENGINEERING",    label: "Electrical Engineering"    },
-    { value: "ELECTRONICS_COMMUNICATION", label: "Electronics & Communication"},
-    { value: "CHEMICAL_ENGINEERING",      label: "Chemical Engineering"      },
-    { value: "BIOTECHNOLOGY",             label: "Biotechnology"             },
-    { value: "MATHEMATICS",               label: "Mathematics"               },
-    { value: "PHYSICS",                   label: "Physics"                   },
-    { value: "COMMERCE",                  label: "Commerce"                  },
-    { value: "LAW",                       label: "Law"                       },
-    { value: "GENERAL",                   label: "General"                   }
+    { value: "COMPUTER_SCIENCE", label: "Computer Science" },
+    { value: "INFORMATION_TECHNOLOGY", label: "Information Technology" },
+    { value: "MECHANICAL_ENGINEERING", label: "Mechanical Engineering" },
+    { value: "CIVIL_ENGINEERING", label: "Civil Engineering" },
+    { value: "ELECTRICAL_ENGINEERING", label: "Electrical Engineering" },
+    { value: "ELECTRONICS_COMMUNICATION", label: "Electronics & Communication" },
+    { value: "CHEMICAL_ENGINEERING", label: "Chemical Engineering" },
+    { value: "BIOTECHNOLOGY", label: "Biotechnology" },
+    { value: "MATHEMATICS", label: "Mathematics" },
+    { value: "PHYSICS", label: "Physics" },
+    { value: "COMMERCE", label: "Commerce" },
+    { value: "LAW", label: "Law" },
+    { value: "GENERAL", label: "General" }
 ];
 
 
