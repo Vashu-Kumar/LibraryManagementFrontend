@@ -19,8 +19,7 @@ const AuthLayout = () => {
             "
         >
             {/* Decorative Blobs */}
-            <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl" />
+            
 
             {/* Content */}
             <div className="relative z-10 flex flex-col items-center">

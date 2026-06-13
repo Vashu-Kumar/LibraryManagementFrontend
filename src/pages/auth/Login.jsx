@@ -97,7 +97,7 @@ const Login = () => {
     // ── INPUT CLASS ──────────────────────
 
     const inputClass = (field) => `
-        w-full px-12 py-6 rounded-xl bg-white/5 border
+        w-full px-8 py-2 rounded-xl bg-white/5 border
         ${errors[field]
             ? "border-red-500/60 focus:border-red-500"
             : "border-white/10 focus:border-yellow-400/60"
@@ -108,12 +108,12 @@ const Login = () => {
     `;
 
     return (
-        <div className="w-full max-w-md px-4 font-serif"
+        <div className="w-[80%] max-w-md font-serif"
         >
             <div className="w-full max-w-md">
 
                 {/* ── DEMO ACCOUNTS ────────────────── */}
-                <div className="mb-6">
+                <div className="mb-2">
                     <p className="text-xs text-red-800 text-center
                         uppercase tracking-widest mb-3"
                     >
@@ -139,15 +139,15 @@ const Login = () => {
 
                 {/* ── FORM CARD ────────────────────── */}
                 <div className="bg-white/3 border border-white/7
-                    rounded-2xl p-8"
+                    rounded-2xl p-2"
                 >
-                    <h2 className="text-xl font-bold mb-6 text-[#3746ec]">
+                    <h2 className="text-xl font-bold mb-4 text-[#3746ec]">
                         Sign In
                     </h2>
 
                     {/* Login Type Tabs */}
                     <div className="flex gap-1 p-1 bg-white/5
-                        rounded-xl mb-6"
+                        rounded-xl mb-4"
                     >
                         {[
                             { value: "email", label: "Email" },
@@ -181,7 +181,7 @@ const Login = () => {
                         {loginType === "email" && (
                             <div>
                                 <label className="block text-xs text-gray-700
-                                    mb-2 uppercase tracking-wider"
+                                    mb-1 uppercase tracking-wider"
                                 >
                                     Email
                                 </label>
@@ -206,7 +206,7 @@ const Login = () => {
                         {loginType === "rollNumber" && (
                             <div>
                                 <label className="block text-xs text-gray-700
-                                    mb-2 uppercase tracking-wider"
+                                    mb-1 uppercase tracking-wider"
                                 >
                                     Roll Number
                                 </label>
@@ -231,7 +231,7 @@ const Login = () => {
                         {loginType === "studentId" && (
                             <div>
                                 <label className="block text-xs text-gray-700
-                                    mb-2 uppercase tracking-wider"
+                                    mb-1 uppercase tracking-wider"
                                 >
                                     Student ID
                                 </label>
@@ -256,7 +256,7 @@ const Login = () => {
                         {/* Password */}
                         <div>
                             <label className="block text-xs text-gray-700
-                                mb-2 uppercase tracking-wider"
+                                mb-1 uppercase tracking-wider"
                             >
                                 Password
                             </label>
@@ -282,7 +282,7 @@ const Login = () => {
                             type="submit"
                             disabled={loading}
                             className={`
-                                w-full py-8 rounded-xl font-bold text-sm
+                                w-full py-4 rounded-xl font-bold text-sm
                                 transition-all duration-200 border-none
                                 font-serif cursor-pointer mt-2
                                 ${loading
@@ -296,7 +296,7 @@ const Login = () => {
                     </form>
 
                     {/* Register Link */}
-                    <p className="text-center text-sm text-gray-500 mt-6">
+                    <p className="text-center text-sm text-gray-500 mt-2">
                         New student?{" "}
                         <Link
                             to={ROUTES.REGISTER}
