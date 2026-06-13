@@ -12,8 +12,8 @@ import LibrarianLayout  from "../layouts/LibrarianLayout";
 import AdminLayout      from "../layouts/AdminLayout";
 
 // Auth Pages
-import Login    from "../pages/auth/Login";
-import Register from "../pages/auth/Register";
+import Login    from "../pages/Auth/Login";
+import Register from "../pages/Auth/Register";
 
 // Student Pages
 import StudentDashboard  from "../pages/student/StudentDashboard";
