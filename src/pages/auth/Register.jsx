@@ -403,7 +403,7 @@ const Register = () => {
                         Already have an account?{" "}
                         <Link
                             to={ROUTES.LOGIN}
-                            className="text-yellow-400 hover:text-yellow-300
+                            className="text-yellow-600 hover:text-yellow-300
                                 transition-colors"
                         >
                             Sign in here

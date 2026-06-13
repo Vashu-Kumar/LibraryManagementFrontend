@@ -13,7 +13,7 @@ const AuthLayout = () => {
             className="
                 min-h-screen w-full
                 flex items-center justify-center
-                bg-gradient-to-b from-pink-100 to-blue-100
+                bg-[#f9fcfd]
                 relative overflow-hidden
                 font-serif
             "
