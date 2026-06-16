@@ -54,7 +54,6 @@ const Login = () => {
     };
 
     // ── VALIDATION ───────────────────────
-
     const validate = () => {
         const newErrors = {};
         if (loginType === "email" && !formData.email)
@@ -70,7 +69,6 @@ const Login = () => {
     };
 
     // ── SUBMIT ───────────────────────────
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validate()) return;
@@ -95,7 +93,6 @@ const Login = () => {
     };
 
     // ── INPUT CLASS ──────────────────────
-
     const inputClass = (field) => `
         w-full px-8 py-2 rounded-xl bg-white/5 border
         ${errors[field]
