@@ -27,7 +27,7 @@ const StudentLayout = () => {
         <div style={{
             display: "flex",
             minHeight: "100vh",
-            background: "#4068e2",
+            background: "#0E121A",
             fontFamily: "Georgia, serif",
             color: "#e8e0d0"
         }}>
