@@ -116,13 +116,12 @@ const Register = () => {
 
     // INPUT
     const inputClass = (field) => `
-        w-full px-4 py-2 rounded-xl
-        bg-white/5 border
+       w-full px-8 py-2 rounded-xl bg-white/5 border
         ${errors[field]
             ? "border-red-500/60 focus:border-red-500"
             : "border-white/10 focus:border-yellow-400/60"
         }
-        text-[#0c0c0c] placeholder-gray-400/90
+        text-gray-100 placeholder-gray-400
         focus:outline-none transition-all
         duration-200 text-sm font-serif
         focus:bg-white/8
@@ -140,16 +139,15 @@ const Register = () => {
         >
             <div className="w-full max-w-lg"> 
                 {/* ── FORM CARD ────────────────────── */}
-                <div className="bg-white/3 border border-white/7
-                    rounded-2xl pt-2 "
+                <div className="rounded-2xl pt-1"
                 >
-                    <h2 className="text-xl font-bold mb-1 text-[#3746ec]">
+                    <h2 className="text-xl font-bold mb-3 text-[#5dc0e7]">
                         Student Registration
                     </h2>
-                    <p className="text-xs text-gray-500 pt-2 mb-4">
+                    {/* <p className="text-xs text-gray-500 pt-2 mb-4">
                         Fields marked <span className="text-red-400">*</span> are required.
                         College info is optional.
-                    </p>
+                    </p> */}
 
                     <form onSubmit={handleSubmit} className="space-y-4">
 
@@ -158,10 +156,10 @@ const Register = () => {
 
                             {/* First Name */}
                             <div>
-                                <label className="block text-xs text-gray-900
+                                <label className="block text-xs text-[#f59bc3]
                                     mb-1 uppercase tracking-wider"
                                 >
-                                    First Name <span className="text-red-400">*</span>
+                                    First Name <span className="text-[#f50929]">*</span>
                                 </label>
                                 <input
                                     type="text"
@@ -180,7 +178,7 @@ const Register = () => {
 
                             {/* Last Name */}
                             <div>
-                                <label className="block text-xs text-gray-900
+                                <label className="block text-xs text-[#f59bc3]
                                  mb-2 uppercase tracking-wider"
                                 >
                                     Last Name
@@ -198,11 +196,11 @@ const Register = () => {
 
                         {/* ── EMAIL ────────────────────── */}
                         <div>
-                            <label className="block text-xs text-gray-900
+                            <label className="block text-xs text-[#f59bc3]
                                 mb-2 uppercase tracking-wider"
                             >
                                 Email
-                                <span className="text-gray-600 ml-2
+                                <span className="text-gray-400 ml-2
                                     normal-case tracking-normal"
                                 >
                                     (optional — any email works with valid format)
@@ -228,7 +226,7 @@ const Register = () => {
 
                             {/* Password */}
                             <div>
-                                <label className="block text-xs text-gray-900
+                                <label className="block text-xs text-[#f59bc3]
                                     mb-2 uppercase tracking-wider"
                                 >
                                     Password <span className="text-red-400">*</span>
@@ -250,7 +248,7 @@ const Register = () => {
 
                             {/* Confirm Password */}
                             <div>
-                                <label className="block text-xs text-gray-900
+                                <label className="block text-xs text-[#f59bc3]
                                     mb-2 uppercase tracking-wider"
                                 >
                                     Confirm <span className="text-red-400">*</span>
@@ -274,7 +272,7 @@ const Register = () => {
                         {/* ── DIVIDER ──────────────────── */}
                         <div className="flex items-center gap-3 py-1">
                             <div className="flex-1 h-px bg-white/10" />
-                            <span className="text-xs text-gray-800
+                            <span className="text-xs text-gray-300
                                 uppercase tracking-wider whitespace-nowrap"
                             >
                                 College Info — Optional
@@ -284,7 +282,7 @@ const Register = () => {
 
                         {/* ── DEPARTMENT ───────────────── */}
                         <div>
-                            <label className="block text-xs text-gray-900
+                            <label className="block text-xs text-[#f59bc3]
                                 mb-2 uppercase tracking-wider"
                             >
                                 Department
@@ -297,7 +295,7 @@ const Register = () => {
                                     ${inputClass("department")}
                                     cursor-pointer
                                 `}
-                                style={{ background: "#f0f2f7" }}
+                                style={{ background: "#272729" }}
                             >
                                 <option value="">Select Department</option>
                                 {DEPARTMENTS.map(dept => (
@@ -316,7 +314,7 @@ const Register = () => {
 
                             {/* Course — depends on department */}
                             <div>
-                                <label className="block text-xs text-gray-900
+                                <label className="block text-xs text-[#f59bc3]
                                     mb-2 uppercase tracking-wider"
                                 >
                                     Course
@@ -334,7 +332,7 @@ const Register = () => {
                                             : ""
                                         }
                                     `}
-                                    style={{ background: "#f0f2f7" }}
+                                    style={{ background: "#272729" }}
                                 >
                                     <option value="">
                                         {formData.department
@@ -354,7 +352,7 @@ const Register = () => {
 
                             {/* Admission Year */}
                             <div>
-                                <label className="block text-xs text-gray-900
+                                <label className="block text-xs text-[#f59bc3]
                                     mb-2 uppercase tracking-wider"
                                 >
                                     Admission Year
@@ -367,7 +365,7 @@ const Register = () => {
                                         ${inputClass("admissionYear")}
                                         cursor-pointer
                                     `}
-                                    style={{ background: "#f0f2f7" }}
+                                    style={{ background: "#272729" }}
                                 >
                                     <option value="">Select Year</option>
                                     {years.map(y => (
@@ -399,7 +397,7 @@ const Register = () => {
                     </form>
 
                     {/* ── LOGIN LINK ───────────────────── */}
-                    <p className="text-center text-sm text-gray-500 mt-2">
+                    <p className="text-center text-sm text-gray-400 mt-4">
                         Already have an account?{" "}
                         <Link
                             to={ROUTES.LOGIN}
@@ -412,7 +410,7 @@ const Register = () => {
                 </div>
 
                 {/* ── BOTTOM NOTE ──────────────────────── */}
-                <p className="text-center text-xs text-gray-600 mt-2 px-4">
+                <p className="text-center text-xs text-gray-300 mt-4 mb-4 px-4">
                     Your Student ID and Roll Number will be
                     auto-generated after registration
                 </p>

@@ -102,7 +102,7 @@ const Login = () => {
             ? "border-red-500/60 focus:border-red-500"
             : "border-white/10 focus:border-yellow-400/60"
         }
-        text-[#000] placeholder-gray-500
+        text-gray-100 placeholder-gray-400
         focus:outline-none focus:bg-white/8
         transition-all duration-200 text-sm font-serif
     `;
@@ -114,7 +114,7 @@ const Login = () => {
 
                 {/* ── DEMO ACCOUNTS ────────────────── */}
                 <div className="mb-2">
-                    <p className="text-xs text-red-800 text-center
+                    <p className="text-xs text-[#f05fa5] text-center
                         uppercase tracking-widest mb-3"
                     >
                         Try Demo Accounts
@@ -138,10 +138,9 @@ const Login = () => {
                 </div>
 
                 {/* ── FORM CARD ────────────────────── */}
-                <div className="bg-white/3 border border-white/7
-                    rounded-2xl p-2"
+                <div className="rounded-2xl p-2"
                 >
-                    <h2 className="text-xl font-bold mb-4 text-[#3746ec]">
+                    <h2 className="text-xl font-bold mb-4 text-[#5dc0e7]">
                         Sign In
                     </h2>
 
@@ -165,8 +164,8 @@ const Login = () => {
                                     font-semibold transition-all duration-200
                                     cursor-pointer border-none
                                     ${loginType === tab.value
-                                        ? "bg-yellow-400 text-[#0a0f1e]"
-                                        : "text-gray-600 bg-transparent"
+                                        ? "bg-yellow-400 text-[#0a161e]"
+                                        : "text-gray-400 bg-transparent"
                                     }
                                 `}
                             >
@@ -180,7 +179,7 @@ const Login = () => {
                         {/* Dynamic Credential Field */}
                         {loginType === "email" && (
                             <div>
-                                <label className="block text-xs text-gray-700
+                                <label className="block text-xs text-[#f59bc3]
                                     mb-1 uppercase tracking-wider"
                                 >
                                     Email
@@ -205,7 +204,7 @@ const Login = () => {
 
                         {loginType === "rollNumber" && (
                             <div>
-                                <label className="block text-xs text-gray-700
+                                <label className="block text-xs text-[#f59bc3]
                                     mb-1 uppercase tracking-wider"
                                 >
                                     Roll Number
@@ -230,7 +229,7 @@ const Login = () => {
 
                         {loginType === "studentId" && (
                             <div>
-                                <label className="block text-xs text-gray-700
+                                <label className="block text-xs text-[#f59bc3]
                                     mb-1 uppercase tracking-wider"
                                 >
                                     Student ID
@@ -255,7 +254,7 @@ const Login = () => {
 
                         {/* Password */}
                         <div>
-                            <label className="block text-xs text-gray-700
+                            <label className="block text-xs text-[#f59bc3]
                                 mb-1 uppercase tracking-wider"
                             >
                                 Password
@@ -296,7 +295,7 @@ const Login = () => {
                     </form>
 
                     {/* Register Link */}
-                    <p className="text-center text-sm text-gray-500 mt-2">
+                    <p className="text-center text-sm text-gray-400 mt-4">
                         New student?{" "}
                         <Link
                             to={ROUTES.REGISTER}

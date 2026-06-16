@@ -13,7 +13,7 @@ const AuthLayout = () => {
             className="
                 min-h-screen w-full
                 flex items-center justify-center
-                bg-[#f9fcfd]
+                bg-[#0E121A]
                 relative overflow-hidden
                 font-serif
             "
@@ -33,7 +33,7 @@ const AuthLayout = () => {
                             Central Library
                         </h1>
 
-                        <p className="text-sm text-[#1423f0] tracking-[0.25em] uppercase">
+                        <p className="text-sm text-[#0796ac] tracking-[0.25em] uppercase">
                             Digital Library Management System
                         </p>
                     </div>
