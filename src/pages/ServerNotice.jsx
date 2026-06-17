@@ -4,8 +4,13 @@ function ServerNotice() {
     const [show, setShow] = useState(false);
 
     useEffect(() => {
-        setShow(true);
-    }, []);
+  const hasSeenNotice = localStorage.getItem("renderNoticeSeen");
+
+  if (!hasSeenNotice) {
+    setShow(true);
+    localStorage.setItem("renderNoticeSeen", "true");
+  }
+}, []);
 
     if (!show) return null;
 
