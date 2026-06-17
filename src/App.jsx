@@ -1,17 +1,14 @@
 import AppRoutes from "./routes/AppRoutes";
 import { Toaster } from "react-hot-toast";
-// import ServerNotice from "./pages/ServerNotice";
 
 const App = () => {
     return (
         <>
             <AppRoutes />
-            {/* <ServerNotice /> */}
-
             <Toaster
                 position="top-right"
                 toastOptions={{
-                    duration: 3000,
+                    duration: 5000,
                     style: {
                         background: "#1f2937",
                         color: "#f9fafb",
