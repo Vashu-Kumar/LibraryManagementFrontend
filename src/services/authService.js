@@ -8,6 +8,7 @@ export const login = async (data) => {
             ENDPOINTS.AUTH.LOGIN, data
         );
 
+    console.log("Login response:", response);
         const token = response?.data?.token;
         const role = response?.data?.role;
         const userId = response?.data?.userId;
