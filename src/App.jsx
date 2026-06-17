@@ -1,10 +1,13 @@
 import AppRoutes from "./routes/AppRoutes";
 import { Toaster } from "react-hot-toast";
+import ServerNotice from "./pages/ServerNotice";
 
 const App = () => {
     return (
         <>
             <AppRoutes />
+            <ServerNotice />
+
             <Toaster
                 position="top-right"
                 toastOptions={{
