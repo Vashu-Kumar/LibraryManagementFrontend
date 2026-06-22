@@ -82,24 +82,24 @@ const Profile = () => {
     };
 
     const inputClass = (field) => `
-        w-full px-4 py-3 rounded-xl bg-white/5 border
-        ${pwErrors[field]
-            ? "border-red-500/60"
-            : "border-white/10 focus:border-yellow-400/60"
-        }
-        text-[#e8e0d0] placeholder-gray-500 focus:outline-none
-        transition-all duration-200 text-sm font-serif
-    `;
+    w-full px-3 sm:px-4 py-3 rounded-xl bg-white/5 border
+    ${pwErrors[field]
+        ? "border-red-500/60"
+        : "border-white/10 focus:border-yellow-400/60"
+    }
+    text-[#e8e0d0] placeholder-gray-500 focus:outline-none
+    transition-all duration-200 text-sm font-serif
+`;
 
     if (loading) return <Loader />;
     if (!user) return null;
 
     return (
-        <div className="font-serif text-[#e8e0d0] max-w-2xl">
+    <div className="font-serif text-[#e8e0d0] w-full max-w-5xl mx-auto px-3 sm:px-4 md:px-6">
 
             {/* ── HEADER ───────────────────────── */}
-            <div className="flex items-center gap-4 mb-8">
-                <div className="w-16 h-16 rounded-2xl
+           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl
                     bg-gradient-to-br from-indigo-500 to-purple-500
                     flex items-center justify-center text-2xl
                     font-bold text-white flex-shrink-0"
@@ -107,9 +107,9 @@ const Profile = () => {
                     {user.firstName?.charAt(0)}
                 </div>
                 <div>
-                    <h1 className="text-2xl font-bold">{user.fullName}</h1>
-                    <p className="text-gray-500 text-sm">{user.email}</p>
-                    <div className="flex gap-3 mt-1">
+                    <h1 className="text-xl sm:text-2xl font-bold break-words">{user.fullName}</h1>
+                    <p className="text-gray-500 text-xs sm:text-sm break-all">{user.email}</p>
+                   <div className="flex flex-wrap gap-2 sm:gap-3 mt-1">
                         <span className="text-xs text-indigo-400">
                             {user.studentId}
                         </span>
@@ -122,7 +122,7 @@ const Profile = () => {
             </div>
 
             {/* ── TABS ─────────────────────────── */}
-            <div className="flex gap-1 p-1 bg-white/5 rounded-xl mb-6">
+          <div className="flex flex-col sm:flex-row gap-1 p-1 bg-white/5 rounded-xl mb-6">
                 {[
                     { value: "profile", label: "Profile" },
                     { value: "password", label: "Change Password" }
@@ -131,7 +131,7 @@ const Profile = () => {
                         key={t.value}
                         onClick={() => setTab(t.value)}
                         className={`
-                            flex-1 py-2 px-4 rounded-lg text-sm
+    flex-1 py-2.5 px-4 rounded-lg text-xs sm:text-sm
                             font-semibold transition-all cursor-pointer
                             border-none font-serif
                             ${tab === t.value
@@ -148,7 +148,7 @@ const Profile = () => {
             {/* ── PROFILE TAB ──────────────────── */}
             {tab === "profile" && (
                 <div className="bg-white/3 border border-white/7
-                    rounded-2xl p-6"
+                    rounded-2xl p-4 sm:p-6"
                 >
                     <h2 className="text-sm uppercase tracking-widest
                         text-gray-500 mb-5"
@@ -156,7 +156,7 @@ const Profile = () => {
                         Personal Information
                     </h2>
 
-                    <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
                         {[
                             { label: "First Name", value: user.firstName },
                             { label: "Last Name", value: user.lastName },
@@ -177,12 +177,12 @@ const Profile = () => {
                             <div
                                 key={i}
                                 className="bg-white/3 border border-white/7
-                                    rounded-xl p-3"
+                                  rounded-xl p-3 sm:p-4"
                             >
                                 <p className="text-xs text-gray-500 mb-1">
                                     {item.label}
                                 </p>
-                                <p className="text-sm font-semibold">
+                           <p className="text-sm font-semibold break-words">
                                     {item.value || "—"}
                                 </p>
                             </div>
@@ -190,7 +190,7 @@ const Profile = () => {
                     </div>
 
                     {/* Status */}
-                    <div className="flex gap-3">
+                 <div className="flex flex-col sm:flex-row gap-3">
                         <div className={`
                             px-3 py-1.5 rounded-xl text-xs
                             font-semibold border
@@ -221,7 +221,7 @@ const Profile = () => {
             {/* ── PASSWORD TAB ─────────────────── */}
             {tab === "password" && (
                 <div className="bg-white/3 border border-white/7
-                    rounded-2xl p-6"
+                rounded-2xl p-4 sm:p-6  "
                 >
                     <h2 className="text-sm uppercase tracking-widest
                         text-gray-500 mb-5"
@@ -310,7 +310,7 @@ const Profile = () => {
                             disabled={pwLoading}
                             className={`
                                 w-full py-3 rounded-xl font-bold
-                                text-sm border-none font-serif
+text-sm sm:text-base border-none font-serif
                                 transition-all duration-200
                                 ${pwLoading
                                     ? "bg-yellow-400/50 text-[#0a0f1e]/50 cursor-not-allowed"

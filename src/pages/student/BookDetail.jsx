@@ -50,27 +50,36 @@ const BookDetail = () => {
     if (!book) return null;
 
     return (
-        <div className="font-serif text-[#e8e0d0] max-w-4xl">
-
+        // <div className="font-serif text-[#e8e0d0] max-w-4xl">
+<div className="font-serif text-[#e8e0d0] max-w-4xl w-full mx-auto px-4 sm:px-6">
             {/* ── BACK ─────────────────────────── */}
             <button
                 onClick={() => navigate(ROUTES.STUDENT.CATALOG)}
+                // className="flex items-center gap-2 text-gray-400
+                //     text-sm mb-6 hover:text-yellow-400 transition-colors
+                //     cursor-pointer bg-transparent border-none"
                 className="flex items-center gap-2 text-gray-400
-                    text-sm mb-6 hover:text-yellow-400 transition-colors
-                    cursor-pointer bg-transparent border-none"
+    text-sm sm:text-base mb-4 sm:mb-6 hover:text-yellow-400
+    transition-colors cursor-pointer bg-transparent border-none"
             >
                 ← Back to Catalog
             </button>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
+            {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8"> */}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {/* ── COVER ────────────────────── */}
                 <div className="md:col-span-1">
-                    <div className="rounded-2xl overflow-hidden
+                    {/* <div className="rounded-2xl overflow-hidden
                         bg-gradient-to-br from-indigo-500/20
                         to-purple-500/20 aspect-[3/4]
                         flex items-center justify-center"
-                    >
+                    > */}
+                    <div className="rounded-2xl overflow-hidden
+    bg-gradient-to-br from-indigo-500/20
+    to-purple-500/20 aspect-[3/4]
+    max-w-xs sm:max-w-sm md:max-w-full mx-auto
+    flex items-center justify-center"
+>
                         {book.coverImageUrl ? (
                             <img
                                 src={book.coverImageUrl}
@@ -84,7 +93,7 @@ const BookDetail = () => {
 
                     {/* Availability */}
                     <div className={`
-                        mt-4 p-4 rounded-xl border text-center
+                        mt-4 p-3 sm:p-4 rounded-xl border text-center
                         ${book.available
                             ? "bg-emerald-500/10 border-emerald-500/20"
                             : "bg-red-500/10 border-red-500/20"
@@ -106,7 +115,7 @@ const BookDetail = () => {
                         <button
                             onClick={handleReserve}
                             disabled={reserving}
-                            className="w-full mt-3 py-3 rounded-xl
+                            className="w-full mt-3 py-3 sm:py-4 rounded-xl
                                 border border-yellow-400/40
                                 text-yellow-400 font-bold text-sm
                                 font-serif cursor-pointer bg-transparent
@@ -122,11 +131,15 @@ const BookDetail = () => {
                 <div className="md:col-span-2">
 
                     {/* Title & Author */}
-                    <h1 className="text-2xl font-bold mb-1">
+                    {/* <h1 className="text-2xl font-bold mb-1"> */}
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">
                         {book.title}
                     </h1>
-                    <p className="text-gray-400 mb-1">by {book.author}</p>
-                    <p className="text-xs text-indigo-400 mb-6">
+                    {/* <p className="text-gray-400 mb-1"> */}
+                    <p className="text-sm sm:text-base text-gray-400 mb-1">
+                        by {book.author}</p>
+                    {/* <p className="text-xs text-indigo-400 mb-6 */}
+                    <p className="text-xs sm:text-sm text-indigo-400 mb-4 sm:mb-6">
                         {book.categoryName}
                     </p>
 
@@ -138,14 +151,16 @@ const BookDetail = () => {
                             >
                                 About
                             </h3>
-                            <p className="text-sm text-gray-400 leading-relaxed">
+                            {/* <p className="text-sm text-gray-400 leading-relaxed"> */}
+                            <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                                 {book.description}
                             </p>
                         </div>
                     )}
 
                     {/* Info Grid */}
-                    <div className="grid grid-cols-2 gap-3">
+                    {/* <div className="grid grid-cols-2 gap-3"> */}
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {[
                             { label: "ISBN", value: book.isbn || "N/A" },
                             { label: "Publisher", value: book.publisher || "N/A" },
@@ -156,8 +171,10 @@ const BookDetail = () => {
                         ].map((item, i) => (
                             <div
                                 key={i}
+                                // className="bg-white/3 border border-white/7
+                                //     rounded-xl p-3"
                                 className="bg-white/3 border border-white/7
-                                    rounded-xl p-3"
+    rounded-xl p-3 sm:p-4"
                             >
                                 <p className="text-xs text-gray-500 mb-1">
                                     {item.label}
@@ -170,7 +187,7 @@ const BookDetail = () => {
                     </div>
 
                     {/* Stats */}
-                    <div className="mt-4 flex gap-4">
+              <div className="mt-4 flex flex-wrap gap-4">
                         <div className="text-center">
                             <p className="text-xl font-bold text-yellow-400">
                                 {book.totalBorrowCount}
@@ -188,7 +205,7 @@ const BookDetail = () => {
 
 const Loader = () => (
     <div className="flex items-center justify-center h-64">
-        <div className="text-gray-500 font-serif text-sm">
+    <div className="text-gray-500 font-serif text-sm sm:text-base text-center px-4">
             Loading book details...
         </div>
     </div>

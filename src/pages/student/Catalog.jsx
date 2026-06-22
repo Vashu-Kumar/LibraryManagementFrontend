@@ -103,11 +103,11 @@ const Catalog = () => {
     if (loading) return <Loader />;
 
     return (
-        <div className="font-serif text-[#e8e0d0]">
+       <div className="font-serif text-[#e8e0d0] px-3 sm:px-4 md:px-6">
 
             {/* ── HEADER ───────────────────────── */}
-            <div className="mb-6">
-                <h1 className="text-2xl font-bold mb-1">📚 Book Catalog</h1>
+           <div className="mb-6 text-center sm:text-left">
+                <h1 className="text-xl sm:text-2xl font-bold mb-1">📚 Book Catalog</h1>
                 <p className="text-sm text-gray-500">
                     {books.length} books found
                 </p>
@@ -118,7 +118,10 @@ const Catalog = () => {
                 rounded-2xl p-4 mb-6"
             >
                 {/* Search Bar */}
-                <form onSubmit={handleSearch} className="flex gap-3 mb-4">
+                <form
+    onSubmit={handleSearch}
+    className="flex flex-col sm:flex-row gap-3 mb-4"
+>
                     <input
                         type="text"
                         placeholder="Search by title, author, ISBN..."
@@ -131,28 +134,27 @@ const Catalog = () => {
                             text-sm font-serif"
                     />
                     <button
-                        type="submit"
-                        className="px-5 py-2.5 bg-yellow-400
-                            text-[#0a0f1e] rounded-xl font-bold
-                            text-sm cursor-pointer border-none
-                            hover:bg-yellow-300 transition-colors
-                            font-serif"
-                    >
+    type="submit"
+    className="w-full sm:w-auto px-5 py-2.5 bg-yellow-400
+        text-[#0a0f1e] rounded-xl font-bold text-sm
+        cursor-pointer border-none hover:bg-yellow-300
+        transition-colors font-serif"
+>
                         Search
                     </button>
                 </form>
 
                 {/* Filters Row */}
-                <div className="flex flex-wrap gap-3 items-center">
+                <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
 
                     {/* Category Filter */}
                     <select
                         value={categoryId}
                         onChange={e => setCategoryId(e.target.value)}
-                        className="px-3 py-2 rounded-xl bg-white/5
-                            border border-white/10 text-sm
-                            text-[#e8e0d0] font-serif cursor-pointer
-                            focus:outline-none"
+                     className="w-full sm:w-auto px-3 py-2 rounded-xl
+        bg-white/5 border border-white/10 text-sm
+        text-[#e8e0d0] font-serif cursor-pointer
+        focus:outline-none"
                         style={{ background: "#0d1424" }}
                     >
                         <option value="">All Categories</option>
@@ -177,23 +179,23 @@ const Catalog = () => {
                     </label>
 
                     <button
-                        onClick={handleFilter}
-                        className="px-4 py-2 rounded-xl border
-                            border-indigo-500/40 text-indigo-400
-                            text-sm font-serif cursor-pointer
-                            bg-transparent hover:bg-indigo-500/10
-                            transition-colors"
+    onClick={handleFilter}
+    className="w-full sm:w-auto px-4 py-2 rounded-xl
+        border border-indigo-500/40 text-indigo-400
+        text-sm font-serif cursor-pointer
+        bg-transparent hover:bg-indigo-500/10
+        transition-colors"
                     >
                         Apply Filter
                     </button>
 
-                    <button
-                        onClick={handleReset}
-                        className="px-4 py-2 rounded-xl border
-                            border-white/10 text-gray-400
-                            text-sm font-serif cursor-pointer
-                            bg-transparent hover:bg-white/5
-                            transition-colors"
+                   <button
+    onClick={handleReset}
+    className="w-full sm:w-auto px-4 py-2 rounded-xl
+        border border-white/10 text-gray-400
+        text-sm font-serif cursor-pointer
+        bg-transparent hover:bg-white/5
+        transition-colors"
                     >
                         Reset
                     </button>
@@ -204,9 +206,9 @@ const Catalog = () => {
             {books.length === 0 ? (
                 <EmptyState message="No books found" />
             ) : (
-                <div className="grid grid-cols-2 md:grid-cols-3
-                    lg:grid-cols-4 xl:grid-cols-5 gap-4"
-                >
+                <div className="grid grid-cols-1 sm:grid-cols-2
+    md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5
+    gap-4">
                     {books.map(book => (
                         <BookCard
                             key={book.id}
@@ -234,9 +236,9 @@ const BookCard = ({ book, onReserve, reserving, onClick }) => (
         {/* Cover */}
         <div
             onClick={onClick}
-            className="relative h-48 bg-gradient-to-br
-                from-indigo-500/20 to-purple-500/20
-                flex items-center justify-center"
+            className="relative h-40 sm:h-48 md:h-52
+    bg-gradient-to-br from-indigo-500/20
+    to-purple-500/20 flex items-center justify-center"
         >
             {book.coverImageUrl ? (
                 <img
@@ -271,16 +273,16 @@ const BookCard = ({ book, onReserve, reserving, onClick }) => (
         <div className="p-3">
             <p
                 onClick={onClick}
-                className="text-sm font-bold leading-tight
-                    mb-1 line-clamp-2 hover:text-yellow-400
-                    transition-colors"
+                className="text-sm md:text-base font-bold leading-tight
+    mb-1 line-clamp-2 hover:text-yellow-400
+    transition-colors"
             >
                 {book.title}
             </p>
-            <p className="text-xs text-gray-500 mb-3">
+            <p className="text-xs sm:text-sm text-gray-500 mb-3">
                 {book.author}
             </p>
-            <p className="text-xs text-gray-600 mb-3">
+            <p className="text-xs sm:text-sm text-gray-600 mb-3">
                 {book.categoryName}
             </p>
 
