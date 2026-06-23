@@ -53,7 +53,11 @@ const ManageMembers = () => {
             </div>
 
             {/* ── SEARCH ───────────────────────── */}
-            <form onSubmit={handleSearch} className="flex gap-3 mb-6">
+            {/* <form onSubmit={handleSearch} className="flex gap-3 mb-6"> */}
+            <form
+                onSubmit={handleSearch}
+                className="flex flex-col sm:flex-row gap-3 mb-6"
+            >
                 <input
                     type="text"
                     placeholder="Search by name, roll number, student ID..."
@@ -67,20 +71,22 @@ const ManageMembers = () => {
                 />
                 <button
                     type="submit"
-                    className="px-5 py-2.5 bg-yellow-400 text-[#0a0f1e]
-                        rounded-xl font-bold text-sm font-serif
-                        cursor-pointer border-none hover:bg-yellow-300
-                        transition-colors"
+                    className="w-full sm:w-auto px-5 py-2.5 bg-yellow-400 text-[#0a0f1e]
+    rounded-xl font-bold text-sm font-serif
+    cursor-pointer border-none hover:bg-yellow-300 transition-colors"
                 >
                     Search
                 </button>
                 <button
                     type="button"
-                    onClick={() => { setKeyword(""); fetchStudents(); }}
-                    className="px-4 py-2.5 rounded-xl border
-                        border-white/10 text-gray-400 text-sm
-                        font-serif cursor-pointer bg-transparent
-                        hover:bg-white/5 transition-colors"
+                    onClick={() => {
+                        setKeyword("");
+                        fetchStudents();
+                    }}
+                    className="w-full sm:w-auto px-4 py-2.5 rounded-xl border
+    border-white/10 text-gray-400 text-sm
+    font-serif cursor-pointer bg-transparent
+    hover:bg-white/5 transition-colors"
                 >
                     Reset
                 </button>
@@ -90,111 +96,202 @@ const ManageMembers = () => {
             {students.length === 0 ? (
                 <EmptyState message="No students found" />
             ) : (
-                <div className="bg-white/3 border border-white/7
-                    rounded-2xl overflow-hidden"
-                >
-                    {/* Header */}
-                    <div className="grid grid-cols-12 gap-4 px-4 py-3
-                        border-b border-white/7 text-xs text-gray-500
-                        uppercase tracking-wider"
+                <>
+                    {/* Desktop Table */}
+                    <div
+                        className="hidden lg:block bg-white/3 border
+        border-white/7 rounded-2xl overflow-hidden"
                     >
-                        <div className="col-span-3">Student</div>
-                        <div className="col-span-2">ID / Roll</div>
-                        <div className="col-span-3">Department</div>
-                        <div className="col-span-2">Membership</div>
-                        <div className="col-span-2">Status</div>
-                    </div>
-
-                    {/* Rows */}
-                    {students.map((student, i) => (
                         <div
-                            key={student.id}
-                            className={`
-                                grid grid-cols-12 gap-4 px-4 py-4
-                                items-center
-                                ${i < students.length - 1
-                                    ? "border-b border-white/5"
-                                    : ""
-                                }
-                            `}
+                            className="grid grid-cols-12 gap-4 px-4 py-3
+            border-b border-white/7 text-xs text-gray-500
+            uppercase tracking-wider"
                         >
-                            {/* Student */}
-                            <div className="col-span-3 flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-full
-                                    bg-gradient-to-br from-indigo-500
-                                    to-purple-500 flex items-center
-                                    justify-center text-xs font-bold
-                                    text-white flex-shrink-0"
-                                >
-                                    {student.firstName?.charAt(0)}
-                                </div>
-                                <div>
-                                    <p className="text-sm font-semibold
-                                        text-[#e8e0d0]"
+                            <div className="col-span-3">Student</div>
+                            <div className="col-span-2">ID / Roll</div>
+                            <div className="col-span-3">Department</div>
+                            <div className="col-span-2">Membership</div>
+                            <div className="col-span-2">Status</div>
+                        </div>
+
+                        {students.map((student, i) => (
+                            <div
+                                key={student.id}
+                                className={`grid grid-cols-12 gap-4 px-4 py-4 items-center
+                ${i < students.length - 1
+                                        ? "border-b border-white/5"
+                                        : ""
+                                    }`}
+                            >
+                                <div className="col-span-3 flex items-center gap-3">
+                                    <div
+                                        className="w-8 h-8 rounded-full bg-gradient-to-br
+                        from-indigo-500 to-purple-500 flex items-center
+                        justify-center text-xs font-bold text-white"
                                     >
-                                        {student.fullName}
+                                        {student.firstName?.charAt(0)}
+                                    </div>
+
+                                    <div>
+                                        <p className="text-sm font-semibold">
+                                            {student.fullName}
+                                        </p>
+                                        <p className="text-xs text-gray-500">
+                                            {student.email || "No email"}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="col-span-2">
+                                    <p className="text-xs text-indigo-400">
+                                        {student.studentId}
                                     </p>
                                     <p className="text-xs text-gray-500">
-                                        {student.email || "No email"}
+                                        {student.rollNumber}
                                     </p>
                                 </div>
-                            </div>
 
-                            {/* ID / Roll */}
-                            <div className="col-span-2">
-                                <p className="text-xs text-indigo-400">
-                                    {student.studentId}
-                                </p>
-                                <p className="text-xs text-gray-500">
-                                    {student.rollNumber}
-                                </p>
-                            </div>
+                                <div className="col-span-3">
+                                    <p className="text-xs">
+                                        {student.department || "—"}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        {student.course || ""}
+                                    </p>
+                                </div>
 
-                            {/* Department */}
-                            <div className="col-span-3">
-                                <p className="text-xs text-[#e8e0d0]">
-                                    {student.department || "—"}
-                                </p>
-                                <p className="text-xs text-gray-500">
-                                    {student.course || ""}
-                                </p>
-                            </div>
+                                <div className="col-span-2">
+                                    <p className="text-xs">
+                                        {student.membershipType}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        {student.maxBorrowLimit} books
+                                    </p>
+                                </div>
 
-                            {/* Membership */}
-                            <div className="col-span-2">
-                                <p className="text-xs text-[#e8e0d0]">
-                                    {student.membershipType}
-                                </p>
-                                <p className="text-xs text-gray-500">
-                                    {student.maxBorrowLimit} books
-                                </p>
-                            </div>
-
-                            {/* Status */}
-                            <div className="col-span-2 flex flex-col gap-1">
-                                <span className={`
-                                    text-xs px-2 py-0.5 rounded-full
-                                    border w-fit font-semibold
-                                    ${student.active
-                                        ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
-                                        : "bg-red-500/15 text-red-400 border-red-500/30"
-                                    }
-                                `}>
-                                    {student.active ? "Active" : "Inactive"}
-                                </span>
-                                {student.borrowingBlocked && (
-                                    <span className="text-xs px-2 py-0.5
-                                        rounded-full border w-fit
-                                        bg-orange-500/15 text-orange-400
-                                        border-orange-500/30 font-semibold"
+                                <div className="col-span-2 flex flex-col gap-1">
+                                    <span
+                                        className={`text-xs px-2 py-0.5 rounded-full border w-fit font-semibold
+                        ${student.active
+                                                ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+                                                : "bg-red-500/15 text-red-400 border-red-500/30"
+                                            }`}
                                     >
-                                        Blocked
+                                        {student.active ? "Active" : "Inactive"}
                                     </span>
-                                )}
+
+                                    {student.borrowingBlocked && (
+                                        <span
+                                            className="text-xs px-2 py-0.5 rounded-full border w-fit
+                            bg-orange-500/15 text-orange-400
+                            border-orange-500/30 font-semibold"
+                                        >
+                                            Blocked
+                                        </span>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+
+                    {/* Mobile & Tablet Cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:hidden">
+                        {students.map((student) => (
+                            <div
+                                key={student.id}
+                                className="bg-white/3 border border-white/10
+                rounded-2xl p-4"
+                            >
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div
+                                        className="w-10 h-10 rounded-full
+                        bg-gradient-to-br from-indigo-500
+                        to-purple-500 flex items-center
+                        justify-center text-white font-bold"
+                                    >
+                                        {student.firstName?.charAt(0)}
+                                    </div>
+
+                                    <div className="min-w-0">
+                                        <h3 className="font-semibold text-sm break-words">
+                                            {student.fullName}
+                                        </h3>
+
+                                        <p className="text-xs text-gray-500 break-all">
+                                            {student.email || "No email"}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-2 text-xs">
+                                    <div>
+                                        <span className="text-gray-500">
+                                            Student ID:
+                                        </span>{" "}
+                                        {student.studentId}
+                                    </div>
+
+                                    <div>
+                                        <span className="text-gray-500">
+                                            Roll No:
+                                        </span>{" "}
+                                        {student.rollNumber}
+                                    </div>
+
+                                    <div>
+                                        <span className="text-gray-500">
+                                            Department:
+                                        </span>{" "}
+                                        {student.department || "—"}
+                                    </div>
+
+                                    <div>
+                                        <span className="text-gray-500">
+                                            Course:
+                                        </span>{" "}
+                                        {student.course || "—"}
+                                    </div>
+
+                                    <div>
+                                        <span className="text-gray-500">
+                                            Membership:
+                                        </span>{" "}
+                                        {student.membershipType}
+                                    </div>
+
+                                    <div>
+                                        <span className="text-gray-500">
+                                            Limit:
+                                        </span>{" "}
+                                        {student.maxBorrowLimit} books
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        className={`text-xs px-2 py-1 rounded-full border font-semibold
+                        ${student.active
+                                                ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+                                                : "bg-red-500/15 text-red-400 border-red-500/30"
+                                            }`}
+                                    >
+                                        {student.active ? "Active" : "Inactive"}
+                                    </span>
+
+                                    {student.borrowingBlocked && (
+                                        <span
+                                            className="text-xs px-2 py-1 rounded-full border
+                            bg-orange-500/15 text-orange-400
+                            border-orange-500/30 font-semibold"
+                                        >
+                                            Blocked
+                                        </span>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </>
             )}
         </div>
     );

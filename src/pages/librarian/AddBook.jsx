@@ -76,24 +76,36 @@ const AddBook = () => {
         }
     };
 
+    // const inputClass = (field) => `
+    //     w-full px-4 py-3 rounded-xl bg-white/5 border
+    //     ${errors[field]
+    //         ? "border-red-500/60"
+    //         : "border-white/10 focus:border-emerald-400/60"
+    //     }
+    //     text-[#e8e0d0] placeholder-gray-500 focus:outline-none
+    //     transition-all duration-200 text-sm font-serif
+    // `;
+
     const inputClass = (field) => `
-        w-full px-4 py-3 rounded-xl bg-white/5 border
-        ${errors[field]
-            ? "border-red-500/60"
-            : "border-white/10 focus:border-emerald-400/60"
-        }
-        text-[#e8e0d0] placeholder-gray-500 focus:outline-none
-        transition-all duration-200 text-sm font-serif
-    `;
+    w-full px-4 py-3 rounded-xl bg-white/5 border
+    ${errors[field]
+        ? "border-red-500/60"
+        : "border-white/10 focus:border-emerald-400/60"
+    }
+    text-[#e8e0d0] placeholder-gray-500 focus:outline-none
+    transition-all duration-200 text-sm sm:text-base font-serif
+`;
+
 
     const currentYear = new Date().getFullYear();
     const years = Array.from({ length: 225 }, (_, i) => currentYear - i);
 
     return (
-        <div className="font-serif text-[#e8e0d0] max-w-2xl">
-
+        // <div className="font-serif text-[#e8e0d0] max-w-2xl">
+<div className="font-serif text-[#e8e0d0] w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* ── HEADER ───────────────────────── */}
-            <div className="flex items-center gap-4 mb-6">
+            {/* <div className="flex items-center gap-4 mb-6"> */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
                 <button
                     onClick={() => navigate(ROUTES.LIBRARIAN.MANAGE_BOOKS)}
                     className="text-gray-400 hover:text-yellow-400
@@ -103,17 +115,21 @@ const AddBook = () => {
                     ← Back
                 </button>
                 <div>
-                    <h1 className="text-2xl font-bold">➕ Add New Book</h1>
+                    {/* <h1 className="text-2xl font-bold"> */}
+                    <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
+                        ➕ Add New Book</h1>
                 </div>
             </div>
 
-            <div className="bg-white/3 border border-white/7
+            {/* <div className="bg-white/3 border border-white/7
                 rounded-2xl p-8"
-            >
+            > */}
+            <div className="bg-white/3 border border-white/7 rounded-2xl p-4 sm:p-6 lg:p-8">
                 <form onSubmit={handleSubmit} className="space-y-5">
 
                     {/* Title + Author */}
-                    <div className="grid grid-cols-2 gap-4">
+                    {/* <div className="grid grid-cols-2 gap-4"> */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label className="block text-xs text-gray-400
                                 mb-2 uppercase tracking-wider"
@@ -157,7 +173,8 @@ const AddBook = () => {
                     </div>
 
                     {/* ISBN + Publisher */}
-                    <div className="grid grid-cols-2 gap-4">
+                    {/* <div className="grid grid-cols-2 gap-4"> */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label className="block text-xs text-gray-400
                                 mb-2 uppercase tracking-wider"
@@ -191,7 +208,8 @@ const AddBook = () => {
                     </div>
 
                     {/* Category + Publish Year + Pages */}
-                    <div className="grid grid-cols-3 gap-4">
+                    {/* <div className="grid grid-cols-3 gap-4"> */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div>
                             <label className="block text-xs text-gray-400
                                 mb-2 uppercase tracking-wider"
@@ -260,7 +278,8 @@ const AddBook = () => {
                     </div>
 
                     {/* Total Copies + Cover URL */}
-                    <div className="grid grid-cols-2 gap-4">
+                    {/* <div className="grid grid-cols-2 gap-4"> */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label className="block text-xs text-gray-400
                                 mb-2 uppercase tracking-wider"
@@ -317,11 +336,12 @@ const AddBook = () => {
                     </div>
 
                     {/* Buttons */}
-                    <div className="flex gap-3 pt-2">
+                    {/* <div className="flex gap-3 pt-2"> */}
+                    <div className="flex flex-col sm:flex-row gap-3 pt-2">
                         <button
                             type="button"
                             onClick={() => navigate(ROUTES.LIBRARIAN.MANAGE_BOOKS)}
-                            className="flex-1 py-3 rounded-xl border
+                            className="w-full sm:flex-1 py-3 rounded-xl border
                                 border-white/10 text-gray-400 text-sm
                                 font-serif cursor-pointer bg-transparent
                                 hover:bg-white/5 transition-colors"

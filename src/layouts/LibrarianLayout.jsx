@@ -1,13 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { ROUTES } from "../utils/constants";
 
 const LibrarianLayout = () => {
-
     const { fullName, logout } = useAuth();
     const navigate = useNavigate();
-    const [sidebarOpen, setSidebarOpen] = useState(true);
+
+
+    const [sidebarOpen, setSidebarOpen] = useState(
+        window.innerWidth >= 1024
+    );
+
+    const [isMobile, setIsMobile] = useState(
+        window.innerWidth < 1024
+    );
+
+    useEffect(() => {
+        const handleResize = () => {
+            const mobile = window.innerWidth < 1024;
+
+            setIsMobile(mobile);
+
+            if (!mobile) {
+                setSidebarOpen(true);
+            } else {
+                setSidebarOpen(false);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+
+    const handleNavClick = () => {
+        if (isMobile) {
+            setSidebarOpen(false);
+        }
+    };
 
     const navItems = [
         { path: ROUTES.LIBRARIAN.DASHBOARD, icon: "🏠", label: "Dashboard" },
@@ -26,54 +58,81 @@ const LibrarianLayout = () => {
     };
 
     return (
-        <div style={{
-            display: "flex",
-            minHeight: "100vh",
-            background: "#0E121A",
-            fontFamily: "Georgia, serif",
-            color: "#e8e0d0"
-        }}>
-
-            {/* ── SIDEBAR ───────────────────────── */}
-            <aside style={{
-                width: sidebarOpen ? 240 : 70,
-                background: "rgba(255,255,255,0.03)",
-                borderRight: "1px solid rgba(255,255,255,0.07)",
+        <div
+            style={{
                 display: "flex",
-                flexDirection: "column",
-                transition: "width 0.3s ease",
-                position: "fixed",
-                top: 0,
-                left: 0,
-                height: "100vh",
-                zIndex: 100,
+                minHeight: "100vh",
+                background: "#0E121A",
+                fontFamily: "Georgia, serif",
+                color: "#e8e0d0",
                 overflowX: "hidden"
-            }}>
+            }}
+        >
+            {isMobile && sidebarOpen && (
+    <div
+        onClick={() => setSidebarOpen(false)}
+        style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.6)",
+            zIndex: 150
+        }}
+    />
+)}
 
-                {/* Logo */}
-                <div style={{
-                    padding: "20px 16px",
-                    borderBottom: "1px solid rgba(255,255,255,0.07)",
+            {/* Sidebar */}
+            <aside
+                style={{
+                    width: 240 ,
+                    background: "#0E121A",
+                    borderRight: "1px solid rgba(255,255,255,0.07)",
                     display: "flex",
-                    alignItems: "center",
-                    gap: 10
-                }}>
-                    <span style={{ fontSize: 24, flexShrink: 0 }}>📚</span>
-                    {sidebarOpen && (
+                    flexDirection: "column",
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    height: "100vh",
+                    zIndex: 200,
+                    overflowX: "hidden",
+                    transform:
+                        isMobile && !sidebarOpen
+                            ? "translateX(-100%)"
+                            : "translateX(0)",
+
+                    transition: "transform 0.3s ease"
+                }}
+            >
+                {/* Logo */}
+                <div
+                    style={{
+                        padding: "20px 16px",
+                        borderBottom: "1px solid rgba(255,255,255,0.07)",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 10
+                    }}
+                >
+                    <span style={{ fontSize: 24 }}>📚</span>
+
+                    {(sidebarOpen || isMobile) && (
                         <div>
-                            <div style={{
-                                fontSize: 14,
-                                fontWeight: 700,
-                                color: "#f5c842",
-                                letterSpacing: 1
-                            }}>
+                            <div
+                                style={{
+                                    fontSize: 14,
+                                    fontWeight: 700,
+                                    color: "#f5c842",
+                                    letterSpacing: 1
+                                }}
+                            >
                                 Central Library
                             </div>
-                            <div style={{
-                                fontSize: 10,
-                                color: "#6b7280",
-                                letterSpacing: 2
-                            }}>
+                            <div
+                                style={{
+                                    fontSize: 10,
+                                    color: "#6b7280",
+                                    letterSpacing: 2
+                                }}
+                            >
                                 LIBRARIAN
                             </div>
                         </div>
@@ -81,17 +140,20 @@ const LibrarianLayout = () => {
                 </div>
 
                 {/* Nav Items */}
-                <nav style={{
-                    flex: 1,
-                    padding: "16px 8px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 4
-                }}>
-                    {navItems.map(item => (
+                <nav
+                    style={{
+                        flex: 1,
+                        padding: "16px 8px",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 4
+                    }}
+                >
+                    {navItems.map((item) => (
                         <NavLink
                             key={item.path}
                             to={item.path}
+                            onClick={handleNavClick}
                             style={({ isActive }) => ({
                                 display: "flex",
                                 alignItems: "center",
@@ -100,148 +162,197 @@ const LibrarianLayout = () => {
                                 borderRadius: 10,
                                 textDecoration: "none",
                                 fontSize: 13,
-                                color: isActive ? "#0a0f1e" : "#9ca3af",
+                                color: isActive
+                                    ? "#0a0f1e"
+                                    : "#9ca3af",
                                 background: isActive
-                                    ? "#10b981"
+                                    ? "#f5c842"
                                     : "transparent",
-                                fontWeight: isActive ? 700 : 400,
-                                transition: "all 0.2s",
-                                whiteSpace: "nowrap"
+                                fontWeight: isActive
+                                    ? 700
+                                    : 400,
+                                transition: "all 0.2s"
                             })}
                         >
-                            <span style={{
-                                fontSize: 18,
-                                flexShrink: 0
-                            }}>
+                            <span style={{ fontSize: 18 }}>
                                 {item.icon}
                             </span>
-                            {sidebarOpen && item.label}
+
+                            {(sidebarOpen || isMobile) && item.label}
                         </NavLink>
                     ))}
                 </nav>
 
-                {/* User Info + Logout */}
-                <div style={{
-                    padding: "16px",
-                    borderTop: "1px solid rgba(255,255,255,0.07)"
-                }}>
-                    {sidebarOpen && (
+                {/* User Section */}
+                <div
+                    style={{
+                        padding: "16px",
+                        borderTop: "1px solid rgba(255,255,255,0.07)"
+                    }}
+                >
+                    {(sidebarOpen || isMobile) && (
                         <div style={{ marginBottom: 12 }}>
-                            <div style={{
-                                fontSize: 13,
-                                fontWeight: 600,
-                                color: "#e8e0d0"
-                            }}>
+                            <div
+                                style={{
+                                    fontSize: 13,
+                                    fontWeight: 600
+                                }}
+                            >
                                 {fullName}
                             </div>
-                            <div style={{
-                                fontSize: 11,
-                                color: "#6b7280"
-                            }}>
+
+                            <div
+                                style={{
+                                    fontSize: 11,
+                                    color: "#6b7280"
+                                }}
+                            >
                                 Librarian
                             </div>
                         </div>
                     )}
+
                     <button
                         onClick={handleLogout}
                         style={{
                             width: "100%",
                             padding: "8px",
                             borderRadius: 8,
-                            border: "1px solid rgba(248,113,113,0.3)",
+                            border:
+                                "1px solid rgba(248,113,113,0.3)",
                             background: "transparent",
                             color: "#f87171",
                             fontSize: 12,
                             cursor: "pointer",
-                            fontFamily: "Georgia, serif",
                             display: "flex",
-                            alignItems: "center",
                             justifyContent: "center",
+                            alignItems: "center",
                             gap: 6
                         }}
                     >
                         <span>🚪</span>
-                        {sidebarOpen && "Logout"}
+                        {(sidebarOpen || isMobile) && "Logout"}
                     </button>
                 </div>
             </aside>
 
-            {/* ── MAIN CONTENT ──────────────────── */}
-            <div style={{
-                flex: 1,
-                marginLeft: sidebarOpen ? 240 : 70,
-                transition: "margin-left 0.3s ease",
-                display: "flex",
-                flexDirection: "column",
-                minHeight: "100vh"
-            }}>
-
-                {/* Top Bar */}
-                <header style={{
-                    height: 60,
-                    background: "rgba(10,15,30,0.92)",
-                    backdropFilter: "blur(16px)",
-                    borderBottom: "1px solid rgba(255,255,255,0.06)",
+            {/* Main Content */}
+            <div
+                style={{
+                    flex: 1,
+                    marginLeft: isMobile
+                        ? 0
+                        : sidebarOpen
+                            ? 240
+                            : 70,
+                    transition: "margin-left 0.3s ease",
                     display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    padding: "0 24px",
-                    position: "sticky",
-                    top: 0,
-                    zIndex: 99
-                }}>
-                    <button
-                        onClick={() => setSidebarOpen(!sidebarOpen)}
-                        style={{
-                            background: "transparent",
-                            border: "none",
-                            color: "#9ca3af",
-                            fontSize: 20,
-                            cursor: "pointer",
-                            padding: 4
-                        }}
-                    >
-                        ☰
-                    </button>
-
-                    <div style={{
+                    flexDirection: "column",
+                    minHeight: "100vh",
+                    width: "100%"
+                }}
+            >
+                {/* Top Bar */}
+                <header
+                    style={{
+                        height: 60,
+                        background: "rgba(10,15,30,0.92)",
+                        backdropFilter: "blur(16px)",
+                        borderBottom: "1px solid rgba(255,255,255,0.06)",
                         display: "flex",
                         alignItems: "center",
-                        gap: 12
-                    }}>
-                        <div style={{
-                            width: 34,
-                            height: 34,
-                            borderRadius: "50%",
-                            background: "linear-gradient(135deg, #10b981, #059669)",
+                        justifyContent: "space-between",
+                        padding: "0 20px",
+                        position: "sticky",
+                        top: 0,
+                        zIndex: 99
+                    }}
+                >
+                    <h3
+                        style={{
+                            margin: 0,
+                            fontSize: isMobile ? 16 : 18,
+                            color: "#10b981"
+                        }}
+                    >
+                        Central Library
+                    </h3>
+
+                    <div
+                        style={{
                             display: "flex",
                             alignItems: "center",
-                            justifyContent: "center",
-                            fontSize: 14,
-                            fontWeight: 700,
-                            color: "#fff"
-                        }}>
-                            {fullName?.charAt(0) || "L"}
-                        </div>
-                        <div>
-                            <div style={{
-                                fontSize: 13,
-                                fontWeight: 600
-                            }}>
-                                {fullName}
-                            </div>
-                            <div style={{
-                                fontSize: 11,
-                                color: "#6b7280"
-                            }}>
-                                Librarian
-                            </div>
-                        </div>
+                            gap: 12
+                        }}
+                    >
+                        {/* Desktop User Info */}
+                        {!isMobile && (
+                            <>
+                                <div
+                                    style={{
+                                        width: 34,
+                                        height: 34,
+                                        borderRadius: "50%",
+                                        background:
+                                            "linear-gradient(135deg,#10b981,#059669)",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        color: "#fff",
+                                        fontWeight: 700
+                                    }}
+                                >
+                                    {fullName?.charAt(0) || "L"}
+                                </div>
+
+                                <div>
+                                    <div
+                                        style={{
+                                            fontSize: 13,
+                                            fontWeight: 600
+                                        }}
+                                    >
+                                        {fullName}
+                                    </div>
+
+                                    <div
+                                        style={{
+                                            fontSize: 11,
+                                            color: "#6b7280"
+                                        }}
+                                    >
+                                        Librarian
+                                    </div>
+                                </div>
+                            </>
+                        )}
+
+                        {/* Mobile & Tablet Hamburger */}
+                        {isMobile && (
+                        <button
+                                onClick={() => setSidebarOpen(!sidebarOpen)}
+                                style={{
+                                    background: "transparent",
+                                    border: "none",
+                                    color: "#fff",
+                                    fontSize: 24,
+                                    cursor: "pointer",
+                                    padding: "4px 8px"
+                                }}
+                            >
+                                {sidebarOpen ? "✕" : "☰"}
+                            </button>
+                        )}
                     </div>
                 </header>
 
                 {/* Page Content */}
-                <main style={{ padding: 24, flex: 1 }}>
+                <main
+                    style={{
+                        padding: window.innerWidth < 768 ? 16 : 24,
+                        flex: 1
+                    }}
+                >
                     <Outlet />
                 </main>
             </div>
