@@ -8,7 +8,7 @@ The backend is running on a free-tier server, so login may be slow or fail on th
 
 A React-based frontend for a full-featured Library Management System, supporting three roles — **Student**, **Librarian**, and **Admin** — each with a dedicated dashboard and workflow. Built with Vite, React Router, Tailwind CSS, and Axios, it consumes a REST API for authentication, book catalog management, loans, reservations, and fines.
 
-🔗 **Live demo:** https://library-management-frontend-kappa-lyart.vercel.app
+🔗 **Live demo:** https://library-management-frontend-gold.vercel.app/login
 
 ## Features
 
