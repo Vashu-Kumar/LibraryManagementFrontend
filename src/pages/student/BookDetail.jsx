@@ -171,8 +171,6 @@ const BookDetail = () => {
                         ].map((item, i) => (
                             <div
                                 key={i}
-                                // className="bg-white/3 border border-white/7
-                                //     rounded-xl p-3"
                                 className="bg-white/3 border border-white/7
     rounded-xl p-3 sm:p-4"
                             >

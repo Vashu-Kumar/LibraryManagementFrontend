@@ -23,12 +23,6 @@ const Login = () => {
     // ── DEMO ACCOUNTS ────────────────────
     const demoAccounts = [
         {
-            label: "Admin",
-            email: import.meta.env.VITE_DEMO_ADMIN_EMAIL,
-            password: import.meta.env.VITE_DEMO_ADMIN_PASSWORD,
-            color: "bg-indigo-500/20 border-indigo-500/40 text-indigo-400"
-        },
-        {
             label: "Librarian",
             email: import.meta.env.VITE_DEMO_LIBRARIAN_EMAIL,
             password: import.meta.env.VITE_DEMO_LIBRARIAN_PASSWORD,
